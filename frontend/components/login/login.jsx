@@ -25,7 +25,8 @@ class Login extends React.Component {
 
  handleSubmit(e) {
    e.preventDefault();
-
+   const user = this.state;
+   this.props.login({user});
  }
 
  renderErrors() {
@@ -42,19 +43,19 @@ class Login extends React.Component {
 
  render() {
    return (
-     <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome to BenchBnB!
+     <div className="">
+        <form onSubmit={this.handleSubmit} className="">
+
           <br/>
-          
+
           {this.renderErrors()}
-          <div className="login-form">
+          <div className="">
             <br/>
             <label>Username:
               <input type="text"
                 value={this.state.username}
                 onChange={this.update('username')}
-                className="login-input"
+                className=""
               />
             </label>
             <br/>
@@ -62,7 +63,7 @@ class Login extends React.Component {
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
-                className="login-input"
+                className=""
               />
             </label>
             <br/>

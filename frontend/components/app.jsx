@@ -17,7 +17,7 @@ const App = () => (
 
     Welcome to Deal Desking
     <Switch>
-      <Route exact path="/login" component={Login} />
+      <AuthRoute exact path="/login" component={Login} />
     </Switch>
   </div>
 

@@ -11,6 +11,7 @@ const LeadReducer = (state = defaultState, action) => {
 
   switch (action.type) {
     case RECEIVE_LEADS:
+
       const leads = action.leads
       return merge({}, state, {
         entities: leads

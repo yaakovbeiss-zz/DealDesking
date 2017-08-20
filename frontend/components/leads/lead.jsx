@@ -6,10 +6,12 @@ class Lead extends React.Component {
   }
 
   render() {
+    
     return (
       <div>
-        This is a lead.
+        {this.props.name}
       </div>
     )
   }
 }
+export default Lead;

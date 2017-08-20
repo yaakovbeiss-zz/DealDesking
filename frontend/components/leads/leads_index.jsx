@@ -1,5 +1,6 @@
 import React from 'react';
 import Lead from './lead';
+import Logout from '../login/logout';
 
 class LeadsIndex extends React.Component {
   constructor(props){
@@ -13,14 +14,20 @@ class LeadsIndex extends React.Component {
   render() {
     const leads = this.props.leads;
 
-    return (
-      <ul>
-        {leads.map( (lead) => <Lead key={lead.id} name={lead.name} email={lead.email}
-          phoneNumber={lead.phone_number} address={lead.address} userId={lead.user_id} />
-          )}
-      </ul>
-    )
+    if (leads) {
+      return (
+        <div>
+          <Logout />
+          <ul>
+            {leads.map( (lead) => <Lead key={lead.email} name={lead.name} email={lead.email}
+            phoneNumber={lead.phone_number} address={lead.address} userId={lead.user_id} />
+              )}
+          </ul>
+        </div>
+      )
+    } else { return null }
+      }
+
   }
-}
 
 export default LeadsIndex;

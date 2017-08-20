@@ -8,17 +8,16 @@ import {
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
-import LeadsIndex from './leads/leads_index';
+import LeadsIndex from './leads/leads_index_container';
 import Login from './login/login_container';
 
 const App = () => (
 
   <div>
-
     Welcome to Deal Desking
     <Switch>
-      <AuthRoute exact path="/login" component={Login} />
-      <AuthRoute exact path="/leads" component={LeadsIndex} />
+      <AuthRoute path="/login" component={Login} />
+      <ProtectedRoute exact path="/" component={LeadsIndex} />
     </Switch>
   </div>
 

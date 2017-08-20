@@ -29,28 +29,27 @@ class Login extends React.Component {
    this.props.login({user});
  }
 
- renderErrors() {
-   return (
-     <ul>
-       {this.props.errors.map((error, i) => (
-         <li key={`error=${i}`}>
-           {error}
-         </li>
-       ))}
-     </ul>
-   );
- }
+ // renderErrors() {
+ //   return (
+ //     <ul>
+ //       {this.props.errors.map((error, i) => (
+ //         <li key={`error=${i}`}>
+ //           {error}
+ //         </li>
+ //       ))}
+ //     </ul>
+ //   );
+ // }
 
  render() {
+   console.log(this.props.loggedIn)
    return (
      <div className="">
         <form onSubmit={this.handleSubmit} className="">
-
           <br/>
-
-          {this.renderErrors()}
           <div className="">
             <br/>
+
             <label>Username:
               <input type="text"
                 value={this.state.username}

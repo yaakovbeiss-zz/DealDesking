@@ -1,4 +1,4 @@
-class LeadsController < ApplicationController
+class Api::LeadsController < ApplicationController
 
   def create
     @lead = Lead.new(lead_params)
@@ -7,7 +7,7 @@ class LeadsController < ApplicationController
     if @lead.save
       render :index
     else
-      render json: @lead.errors.full_messages, status: 422
+      render json: @lead, status: 422
     end
   end
 
@@ -25,7 +25,7 @@ class LeadsController < ApplicationController
     if lead.update(lead_params)
       render :index
     else
-      render :json lead.errors.full_messages, status: 422
+      render json: lead, status: 422
     end
   end
 

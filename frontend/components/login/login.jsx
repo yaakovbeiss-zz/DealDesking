@@ -43,31 +43,31 @@ class Login extends React.Component {
 
  render() {
    return (
-     <div className="">
-        <form onSubmit={this.handleSubmit} className="">
-          <br/>
-          <div className="">
-            <br/>
-            {this.renderErrors()}
-            <label>Username:
-              <input type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-                className=""
-              />
-            </label>
-            <br/>
-            <label>Password:
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className=""
-              />
-            </label>
-            <br/>
-            <input type="submit" value="Submit" />
-          </div>
-        </form>
+     <div className="login-container">
+       <h1>Deal Desking</h1>
+         <form onSubmit={this.handleSubmit} className="login-form">
+             <br/>
+             <span>{this.renderErrors()}</span>
+             <label>
+               <input type="text"
+                 value={this.state.username}
+                 onChange={this.update('username')}
+                 className="login-input"
+                 placeholder="Username"
+               />
+             </label>
+             <br/>
+             <label>
+               <input type="password"
+                 value={this.state.password}
+                 onChange={this.update('password')}
+                 className="login-input"
+                 placeholder="Password"
+               />
+             </label>
+             <br/>
+             <input type="submit" value="Log In" className="submit" />
+         </form>
       </div>
   );
  }

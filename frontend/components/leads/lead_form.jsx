@@ -28,6 +28,7 @@ class LeadForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
+          <h3>Create New Lead</h3>
           <label>Name
             <input type="text"
               value={this.state.name}

@@ -14,7 +14,6 @@ import Login from './login/login_container';
 const App = () => (
 
   <div>
-    Welcome to Deal Desking
     <Switch>
       <AuthRoute path="/login" component={Login} />
       <ProtectedRoute exact path="/" component={LeadsIndex} />

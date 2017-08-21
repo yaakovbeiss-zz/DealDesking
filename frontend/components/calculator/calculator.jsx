@@ -15,9 +15,9 @@ class Calculator extends React.Component {
       smog: 22,
       miscFee: 22,
       numPayments: 36,
-      moneyFactor: .001,
+      moneyFactor: .00059,
       rebate: 0,
-      finalPayment: 0
+      monthlyPayment: 0
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -38,7 +38,7 @@ class Calculator extends React.Component {
     let principal = this.state.sellPrice - residualNum;
     let result = principal + ( this.state.registration * this.state.msrp ) + this.state.bankFee
      + this.state.docFee + this.state.smog + this.state.miscFee + this.state.profit
-    this.setState({ ['finalPayment']: result });
+    this.setState({ ['monthlyPayment']: result });
   }
 
   render() {
@@ -72,7 +72,7 @@ class Calculator extends React.Component {
           </label>
           <label>Registration
             <input type="number"
-              value={this.state.msrp * .01}
+              value={this.state.msrp * .009}
               onChange={this.update('registration')}/>
           </label>
           <label>Bank Fee
@@ -103,7 +103,7 @@ class Calculator extends React.Component {
 
           <input type="submit" value="Submit" />
         </form>
-        Final Payment: {this.state.finalPayment}
+        Monthly Payment: {this.state.monthlyPayment / this.state.numPayments}
       </div>
     )
   }

@@ -20,7 +20,7 @@ class Api::LeadsController < ApplicationController
     @lead = Lead.find(params[:id])
     @lead.destroy
     @leads = current_user.leads
-    render "api/leads/index"
+    render :index
   end
 
   def update

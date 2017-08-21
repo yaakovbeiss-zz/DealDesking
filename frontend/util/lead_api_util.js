@@ -12,10 +12,16 @@ export const fetchLeads = () => (
   })
 );
 
-export const createLead = () => (
+export const createLead = (lead) => (
   $.ajax({
     method: 'POST',
     url: 'api/leads',
     data: { lead }
+  })
+)
+export const destroyLead = (id) => (
+  $.ajax({
+    method: 'DELETE',
+    url: `api/leads/${id}`,
   })
 )

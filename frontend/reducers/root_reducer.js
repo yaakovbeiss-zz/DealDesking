@@ -5,5 +5,5 @@ import LeadReducer from './lead_reducer';
 
 export default combineReducers({
   session: SessionReducer,
-  lead: LeadReducer
+  lead: LeadReducer,
 })

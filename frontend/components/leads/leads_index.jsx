@@ -1,6 +1,8 @@
 import React from 'react';
-import Lead from './lead';
+import Lead from './lead_container';
 import Logout from '../login/logout';
+import Calculator from '../calculator/calculator';
+import LeadForm from './lead_form_container';
 
 class LeadsIndex extends React.Component {
   constructor(props){
@@ -8,7 +10,7 @@ class LeadsIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestLeads();
+      this.props.requestLeads();
   }
 
   render() {
@@ -18,11 +20,13 @@ class LeadsIndex extends React.Component {
       return (
         <div>
           <Logout />
+          <Calculator />
           <ul>
-            {leads.map( (lead) => <Lead key={lead.email} name={lead.name} email={lead.email}
+            {leads.map( (lead) => <Lead key={lead.id} id={lead.id} name={lead.name} email={lead.email}
             phoneNumber={lead.phone_number} address={lead.address} userId={lead.user_id} />
               )}
           </ul>
+          <LeadForm />
         </div>
       )
     } else { return null }

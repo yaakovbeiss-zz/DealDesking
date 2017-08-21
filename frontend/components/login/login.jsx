@@ -12,9 +12,9 @@ class Login extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-   if (nextProps.loggedIn) {
-     this.props.history.push('/');
-   }
+    if (nextProps.loggedIn) {
+      this.props.history.push('/');
+    }
  }
 
  update(field) {
@@ -29,27 +29,26 @@ class Login extends React.Component {
    this.props.login({user});
  }
 
- // renderErrors() {
- //   return (
- //     <ul>
- //       {this.props.errors.map((error, i) => (
- //         <li key={`error=${i}`}>
- //           {error}
- //         </li>
- //       ))}
- //     </ul>
- //   );
- // }
+ renderErrors() {
+   return (
+     <ul>
+       {this.props.errors.map((error, i) => (
+         <li key={`error=${i}`}>
+           {error}
+         </li>
+       ))}
+     </ul>
+   );
+ }
 
  render() {
-   console.log(this.props.loggedIn)
    return (
      <div className="">
         <form onSubmit={this.handleSubmit} className="">
           <br/>
           <div className="">
             <br/>
-
+            {this.renderErrors()}
             <label>Username:
               <input type="text"
                 value={this.state.username}

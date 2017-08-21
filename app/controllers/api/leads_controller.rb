@@ -5,6 +5,7 @@ class Api::LeadsController < ApplicationController
     @lead.user_id = current_user.id
 
     if @lead.save
+      @leads = current_user.leads
       render :index
     else
       render json: @lead, status: 422
@@ -12,11 +13,14 @@ class Api::LeadsController < ApplicationController
   end
 
   def index
-    @leads = current_user.leads
+    @leads = current_user.leads if current_user
   end
 
   def destroy
     @lead = Lead.find(params[:id])
+    @lead.destroy
+    @leads = current_user.leads
+    render "api/leads/index"
   end
 
   def update

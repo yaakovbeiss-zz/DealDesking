@@ -1,3 +1,26 @@
 .leads-index-container {
   margin: 45px;
 }
+.lead-container {
+  display: flex;
+  border: 2px solid #3f51b5;
+  margin: 3px;
+  border-radius: 3px;
+  background-color: #cae8ff;
+  justify-content: space-between;
+}
+.delete-lead-button {
+  display: none;
+}
+.lead-container:hover .delete-lead-button{
+  display: flex;
+}
+.delete-lead-button {
+  height: inherit;
+  width: 100px;
+  background-color: #d26e6e;
+  border-style: none;
+  font-size: 24px;
+  color: white;
+  padding: 18px;
+}

@@ -7,10 +7,22 @@ import LeadForm from './lead_form_container';
 class LeadsIndex extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      hideLeadForm: true
+    }
+    this.toggleLeadForm = this.toggleLeadForm.bind(this)
   }
 
   componentDidMount() {
       this.props.requestLeads();
+  }
+
+  toggleLeadForm() {
+    this.setState({ hideLeadForm: !this.state.hideLeadForm})
+  }
+
+  leadForm() {
+     return this.state.hideLeadForm ?  <div></div> : <LeadForm />
   }
 
   render() {
@@ -23,12 +35,13 @@ class LeadsIndex extends React.Component {
           <section className="leads-index-container">
             <Calculator />
             <h2>Leads</h2>
+            {this.leadForm()}
+            <button onClick={this.toggleLeadForm}>New Lead</button>
             <ul>
               {leads.map( (lead) => <Lead key={lead.id} id={lead.id} name={lead.name} email={lead.email}
               phoneNumber={lead.phone_number} address={lead.address} userId={lead.user_id} />
                 )}
             </ul>
-            <LeadForm />
           </section>
         </div>
       )

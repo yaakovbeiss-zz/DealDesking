@@ -2,6 +2,7 @@ import * as APIUtil from '../util/lead_api_util';
 
 export const RECEIVE_LEAD = 'RECEIVE_LEAD'
 export const RECEIVE_LEADS = 'RECEIVE_LEADS'
+export const SORT_LEADS_BY_NAME = 'SORT_LEADS_BY_NAME'
 
 export const receiveLead = (lead) => ({
   type: RECEIVE_LEAD,

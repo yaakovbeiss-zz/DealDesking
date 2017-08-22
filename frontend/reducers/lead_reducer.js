@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 
-import { RECEIVE_LEAD, RECEIVE_LEADS } from '../actions/lead_actions';
+import { RECEIVE_LEAD, RECEIVE_LEADS, SORT_LEADS_BY_NAME } from '../actions/lead_actions';
 
 const defaultState = {
   entities: {}
@@ -16,10 +16,7 @@ const LeadReducer = (state = defaultState, action) => {
         entities: leads
       }
       break;
-    case RECEIVE_LEAD:
-      return merge({}, state, {
-        entities: action.lead
-      })
+
     default:
       return state;
   }

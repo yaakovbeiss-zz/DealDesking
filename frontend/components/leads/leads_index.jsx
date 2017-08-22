@@ -39,7 +39,7 @@ class LeadsIndex extends React.Component {
             {this.leadForm()}
             <ul>
               {leads.map( (lead) => <Lead key={lead.id} id={lead.id} name={lead.name} email={lead.email}
-              phoneNumber={lead.phone_number} address={lead.address} userId={lead.user_id} />
+              phoneNumber={lead.phone_number} address={lead.address} userId={lead.user_id} createdAt={lead.created_at}/>
                 )}
             </ul>
           </section>

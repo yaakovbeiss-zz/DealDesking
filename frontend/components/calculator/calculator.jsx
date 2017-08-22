@@ -1,5 +1,3 @@
-"use strict";
-
 import React from 'react';
 
 class Calculator extends React.Component {
@@ -84,7 +82,7 @@ class Calculator extends React.Component {
     const preTaxPayment = basePayment + rentCharge;
     let totalPayment = preTaxPayment * (1 + (this.state.tax / 100));
     let driveOff = upfront + this.state.downPayment + totalPayment;
-    
+
     totalPayment = totalPayment.toFixed(2);
     driveOff = driveOff.toFixed(2);
     this.setState({ ['driveOff']: driveOff });
@@ -139,63 +137,67 @@ class Calculator extends React.Component {
                 onChange={this.update('tax')}/>
             </label>
           </section>
-          <section className="calc-row">
-          <label>Bank Fee
-            <input type="number"
-              value={this.state.bankFee}
-              onChange={this.update('bankFee')}/>
-            <select onChange={this.updatePlan('bankFeePlan')}>
-              <option value="Upfront">Upfront</option>
-              <option value="Capped">Capped</option>
-            </select>
-          </label>
-          <label>Registration
-            <input type="number"
-              value={this.state.msrp * .0085}
-              onChange={this.update('registration')}/>
-            <select onChange={this.updatePlan('registrationPlan')}>
-              <option value="Upfront">Upfront</option>
-              <option value="Capped">Capped</option>
-            </select>
-          </label>
-          <label>Doc Fee
-            <input type="number"
-              value={this.state.docFee}
-              onChange={this.update('docFee')}/>
-            <select onChange={this.updatePlan('docFeePlan')} >
-              <option value="Upfront">Upfront</option>
-              <option value="Capped">Capped</option>
-            </select>
-          </label>
-          <label>Smog
-            <input type="number"
-              value={this.state.smog}
-              onChange={this.update('smog')}/>
-            <select onChange={this.updatePlan('smogPlan')}>
-              <option value="Upfront">Upfront</option>
-              <option value="Capped">Capped</option>
-            </select>
-          </label>
-          <label>Misc. Fee
-            <input type="number"
-              value={this.state.miscFee}
-              onChange={this.update('miscFee')}/>
-            <select onChange={this.updatePlan('miscFeePlan')}>
-              <option value="Upfront">Upfront</option>
-              <option value="Capped">Capped</option>
-            </select>
-          </label>
 
-          <label>Customer Cash
-            <input type="number"
-              value={this.state.downPayment}
-              onChange={this.update('downPayment')}/>
-          </label>
-          </section>
+          <section className="calc-row">
+
+              <label>Bank Fee
+                <input type="number"
+                  value={this.state.bankFee}
+                  onChange={this.update('bankFee')}/>
+              </label>
+              <label>Registration
+                <input type="number"
+                  value={this.state.msrp * .0085}
+                  onChange={this.update('registration')}/>
+              </label>
+              <label>Doc Fee
+                <input type="number"
+                  value={this.state.docFee}
+                  onChange={this.update('docFee')}/>
+              </label>
+              <label>Smog
+                <input type="number"
+                  value={this.state.smog}
+                  onChange={this.update('smog')}/>
+              </label>
+              <label>Misc. Fee
+                <input type="number"
+                  value={this.state.miscFee}
+                  onChange={this.update('miscFee')}/>
+              </label>
+              <label>Customer Cash
+                <input type="number"
+                  value={this.state.downPayment}
+                  onChange={this.update('downPayment')}/>
+              </label>
+            </section>
+
+            <section className="calc-row">
+              <select onChange={this.updatePlan('bankFeePlan')}>
+                <option value="Upfront">Upfront</option>
+                <option value="Capped">Capped</option>
+              </select>
+              <select onChange={this.updatePlan('registrationPlan')}>
+                <option value="Upfront">Upfront</option>
+                <option value="Capped">Capped</option>
+              </select>
+              <select onChange={this.updatePlan('docFeePlan')} >
+                <option value="Upfront">Upfront</option>
+                <option value="Capped">Capped</option>
+              </select>
+              <select onChange={this.updatePlan('smogPlan')}>
+                <option value="Upfront">Upfront</option>
+                <option value="Capped">Capped</option>
+              </select>
+              <select onChange={this.updatePlan('miscFeePlan')}>
+                <option value="Upfront">Upfront</option>
+                <option value="Capped">Capped</option>
+              </select>
+            </section>
           <input type="submit" value="Submit" />
         </form>
         Drive Off: {this.state.driveOff} <br/>
-      Total Payment: {this.state.totalPayment}
+        Total Payment: {this.state.totalPayment}
       </div>
     )
   }

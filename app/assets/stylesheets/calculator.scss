@@ -13,9 +13,19 @@
   width: 50px;
   margin: 5px;
 }
+section.calc-row label {
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+}
 section > label {
   display: flex;
   justify-content: space-between;
   width: -webkit-fill-available;
   align-items: center;
+  padding: 0 5px 0 5px;
+}
+select {
+  margin: 4px;
+  height: 22px
 }

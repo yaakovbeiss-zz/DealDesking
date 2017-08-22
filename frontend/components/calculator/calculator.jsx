@@ -68,6 +68,7 @@ class Calculator extends React.Component {
                 onChange={this.update('profit')}/>
             </label>
           </section>
+
           <section className="calc-row">
           <label>Residual %
             <input type="number"
@@ -85,6 +86,7 @@ class Calculator extends React.Component {
               onChange={this.update('numPayments')}/>
           </label>
           </section>
+
           <section className="calc-row">
           <label>Bank Fee
             <input type="number"
@@ -104,7 +106,7 @@ class Calculator extends React.Component {
               <option value="Capped">Capped</option>
             </select>
           </label>
-          <label>Smog
+          <label>Smog Fee
             <input type="number"
               value={this.state.smog}
               onChange={this.update('smog')}/>

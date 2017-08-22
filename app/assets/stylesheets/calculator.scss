@@ -1,12 +1,21 @@
 .calc-container {
   display: flex;
   flex-direction: row;
+  border: 1px solid green;
+  width: -webkit-fill-available; 
 }
 .calc-row {
   display: flex;
   flex-direction: column;
   align-items: left;
 }
- section.calc-row + label + input{
+ section.calc-row input{
   width: 50px;
+  margin: 5px;
+}
+section > label {
+  display: flex;
+  justify-content: space-between;
+  width: -webkit-fill-available;
+  align-items: center;
 }

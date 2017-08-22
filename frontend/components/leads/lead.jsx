@@ -15,12 +15,12 @@ class Lead extends React.Component {
 
     return (
       <div className="lead-container">
-        <p>
-          <div>Name: {this.props.name} </div><br/>
-          <div>Email: {this.props.email} </div><br/>
-          <div>Phone: {this.props.phoneNumber} </div><br/>
-          <div>Address: {this.props.address} </div><br/>
-        </p>
+        <section className="lead-info">
+          <div>{this.props.name} </div><br/>
+          <div>{this.props.email} </div><br/>
+          <div>{this.props.phoneNumber} </div><br/>
+
+        </section>
       <button  className="delete-lead-button" onClick={this.handleClick}>Delete</button>
       </div>
     )

@@ -22,13 +22,13 @@ class LeadForm extends React.Component {
     e.preventDefault();
     const lead = this.state;
     this.props.createLead(lead);
+    this.props.toggleLeadForm();
   }
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <h3>Create New Lead</h3>
+      <div className="lead-container">
+        <form className="lead-info" onSubmit={this.handleSubmit}>
           <label>Name
             <input type="text"
               value={this.state.name}

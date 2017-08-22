@@ -22,7 +22,7 @@ class LeadsIndex extends React.Component {
   }
 
   leadForm() {
-     return this.state.hideLeadForm ?  <div></div> : <LeadForm />
+     return this.state.hideLeadForm ?  <div></div> : <LeadForm toggleLeadForm={this.toggleLeadForm}/>
   }
 
   render() {
@@ -35,8 +35,8 @@ class LeadsIndex extends React.Component {
           <section className="leads-index-container">
             <Calculator />
             <h2>Leads</h2>
-            {this.leadForm()}
             <button onClick={this.toggleLeadForm}>New Lead</button>
+            {this.leadForm()}
             <ul>
               {leads.map( (lead) => <Lead key={lead.id} id={lead.id} name={lead.name} email={lead.email}
               phoneNumber={lead.phone_number} address={lead.address} userId={lead.user_id} />

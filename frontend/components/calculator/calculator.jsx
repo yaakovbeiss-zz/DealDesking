@@ -1,9 +1,11 @@
 import React from 'react';
+import Display from './display.jsx';
 
 class Calculator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      hideDisplay: true,
       msrp: 0,
       sellPrice: 0,
       profit: 0,
@@ -11,6 +13,7 @@ class Calculator extends React.Component {
       residual: 0,
       moneyFactor: .00059,
       months: 36,
+      mileage: 12000,
       tax: 9.25,
       bankFee: 595,
       bankFeePlan: 'Upfront',
@@ -26,9 +29,21 @@ class Calculator extends React.Component {
       rebateTaxPlan: 'Upfront',
       downPayment: 0,
       driveOff: 0,
-      totalPayment: 0
+      monthlyPayment: 0
     }
     this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  display() {
+    return this.state.hideDisplay ? <div></div> :
+      <Display registration={this.state.msrp * .0085} rebateTax={this.state.rebateTax}
+        monthlyPayment={this.state.monthlyPayment} docFee={this.state.docFee} smog={this.state.smog}
+        miscFee={this.state.miscFee} bankFee={this.state.bankFee} downPayment={this.state.downPayment}
+        months={this.state.months} mileage={this.state.mileage} driveOff={this.state.driveOff}/>
+  }
+
+  toggleDisplay() {
+    this.setState({ hideDisplay: !this.state.hideDisplay })
   }
 
   update(field) {
@@ -46,6 +61,7 @@ class Calculator extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.calculatePayments();
+    this.toggleDisplay();
   }
 
   handleFocus(e) {
@@ -87,13 +103,13 @@ class Calculator extends React.Component {
     const basePayment = depreciation / this.state.months;
     const rentCharge = (adjCapCost + residualValue) * this.state.moneyFactor;
     const preTaxPayment = basePayment + rentCharge;
-    let totalPayment = preTaxPayment * (1 + (this.state.tax / 100));
-    let driveOff = upfront + this.state.downPayment + totalPayment;
+    let monthlyPayment = preTaxPayment * (1 + (this.state.tax / 100));
+    let driveOff = upfront + this.state.downPayment + monthlyPayment;
 
-    totalPayment = totalPayment.toFixed(2);
+    monthlyPayment = monthlyPayment.toFixed(2);
     driveOff = driveOff.toFixed(2);
     this.setState({ ['driveOff']: driveOff });
-    this.setState({ ['totalPayment']: totalPayment });
+    this.setState({ ['monthlyPayment']: monthlyPayment });
   }
 
   render() {
@@ -145,6 +161,12 @@ class Calculator extends React.Component {
                 value={this.state.months || 0}
                 onFocus={this.handleFocus}
                 onChange={this.update('months')}/>
+            </label>
+            <label>Mileage
+              <input type="number"
+                value={this.state.mileage}
+                onFocus={this.handleFocus}
+                onChange={this.update('mileage')}/>
             </label>
             <label>Tax %
               <input type="number"
@@ -229,8 +251,8 @@ class Calculator extends React.Component {
           </container>
           <input type="submit" value="Submit" />
         </form>
-        Drive Off: {this.state.driveOff} <br/>
-        Total Payment: {this.state.totalPayment}
+        <br/>
+        {this.display()}
       </div>
     )
   }

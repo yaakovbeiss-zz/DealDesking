@@ -22,6 +22,8 @@ class Calculator extends React.Component {
       smogPlan: 'Upfront',
       miscFee: 22,
       miscFeePlan: 'Upfront',
+      rebateTax: 0,
+      rebateTaxPlan: 'Upfront',
       downPayment: 0,
       driveOff: 0,
       totalPayment: 0
@@ -46,6 +48,10 @@ class Calculator extends React.Component {
     this.calculatePayments();
   }
 
+  handleFocus(e) {
+    e.target.select();
+  }
+
   calculateUpfront() {
     const registration = this.state.msrp * .0085;
     let upfront = 0;
@@ -55,7 +61,8 @@ class Calculator extends React.Component {
       [registration, this.state.registrationPlan],
       [this.state.docFee, this.state.docFeePlan],
       [this.state.smog, this.state.smogPlan],
-      [this.state.miscFee, this.state.miscFeePlan]
+      [this.state.miscFee, this.state.miscFeePlan],
+      [this.state.rebateTax, this.state.rebateTaxPlan]
     ]
     plans.forEach((plan) => {
       if(plan[1] === 'Upfront') {
@@ -92,48 +99,57 @@ class Calculator extends React.Component {
   render() {
     return (
       <div >
-        <form className="calc-container" onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
+          <container className="calc-container">
           <section className="calc-row">
             <label>MSRP
               <input type="number"
-                value={this.state.msrp}
+                value={this.state.msrp || 0}
+                onFocus={this.handleFocus}
                 onChange={this.update('msrp')}/>
             </label>
             <label>Sell Price
               <input type="number"
-                value={this.state.sellPrice}
+                value={this.state.sellPrice || 0}
+                onFocus={this.handleFocus}
                 onChange={this.update('sellPrice')}/>
             </label>
             <label>Profit
               <input type="number"
-                value={this.state.profit}
+                value={this.state.profit || 0}
+                onFocus={this.handleFocus}
                 onChange={this.update('profit')}/>
             </label>
             <label>Rebate
               <input type="number"
-                value={this.state.rebate}
+                value={this.state.rebate || 0}
+                onFocus={this.handleFocus}
                 onChange={this.update('rebate')}/>
             </label>
           </section>
           <section className="calc-row">
           <label>Residual %
               <input type="number"
-                value={this.state.residual}
+                value={this.state.residual || 0}
+                onFocus={this.handleFocus}
                 onChange={this.update('residual')}/>
             </label>
             <label>Money Factor
               <input type="number"
-                value={this.state.moneyFactor}
+                value={this.state.moneyFactor || 0}
+                onFocus={this.handleFocus}
                 onChange={this.update('moneyFactor')}/>
             </label>
             <label>Months
               <input type="number"
-                value={this.state.months}
+                value={this.state.months || 0}
+                onFocus={this.handleFocus}
                 onChange={this.update('months')}/>
             </label>
             <label>Tax %
               <input type="number"
-                value={this.state.tax}
+                value={this.state.tax || 0}
+                onFocus={this.handleFocus}
                 onChange={this.update('tax')}/>
             </label>
           </section>
@@ -142,32 +158,44 @@ class Calculator extends React.Component {
 
               <label>Bank Fee
                 <input type="number"
-                  value={this.state.bankFee}
+                  value={this.state.bankFee || 0}
+                  onFocus={this.handleFocus}
                   onChange={this.update('bankFee')}/>
               </label>
               <label>Registration
                 <input type="number"
-                  value={this.state.msrp * .0085}
+                  value={this.state.msrp * .0085 || 0}
+                  onFocus={this.handleFocus}
                   onChange={this.update('registration')}/>
               </label>
-              <label>Doc Fee
+              <label>Doc. Fee
                 <input type="number"
-                  value={this.state.docFee}
+                  value={this.state.docFee || 0}
+                  onFocus={this.handleFocus}
                   onChange={this.update('docFee')}/>
               </label>
-              <label>Smog
+              <label>Smog Fee
                 <input type="number"
-                  value={this.state.smog}
+                  required value={this.state.smog || 0}
+                  onFocus={this.handleFocus}
                   onChange={this.update('smog')}/>
               </label>
               <label>Misc. Fee
                 <input type="number"
-                  value={this.state.miscFee}
+                  value={this.state.miscFee || 0}
+                  onFocus={this.handleFocus}
                   onChange={this.update('miscFee')}/>
+              </label>
+              <label>Tax on Rebate
+                <input type="number"
+                  value={ this.state.rebate - ((1 - (this.state.tax /100)) * this.state.rebate) || 0}
+                  onFocus={this.handleFocus}
+                  onChange={this.update('rebateTax')}/>
               </label>
               <label>Customer Cash
                 <input type="number"
-                  value={this.state.downPayment}
+                  value={this.state.downPayment || 0}
+                  onFocus={this.handleFocus}
                   onChange={this.update('downPayment')}/>
               </label>
             </section>
@@ -193,7 +221,12 @@ class Calculator extends React.Component {
                 <option value="Upfront">Upfront</option>
                 <option value="Capped">Capped</option>
               </select>
+              <select onChange={this.updatePlan('rebateTaxPlan')}>
+                <option value="Upfront">Upfront</option>
+                <option value="Capped">Capped</option>
+              </select>
             </section>
+          </container>
           <input type="submit" value="Submit" />
         </form>
         Drive Off: {this.state.driveOff} <br/>

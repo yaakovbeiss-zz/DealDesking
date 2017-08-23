@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170821181439) do
+ActiveRecord::Schema.define(version: 20170823013650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,39 @@ ActiveRecord::Schema.define(version: 20170821181439) do
     t.integer  "user_id",      null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "quotes", force: :cascade do |t|
+    t.integer  "user_id",           null: false
+    t.integer  "lead_id"
+    t.integer  "year"
+    t.string   "make"
+    t.string   "model"
+    t.string   "trim"
+    t.string   "title"
+    t.integer  "msrp"
+    t.integer  "sell_price"
+    t.integer  "profit"
+    t.integer  "rebate"
+    t.float    "residual"
+    t.float    "money_factor"
+    t.integer  "months"
+    t.float    "tax"
+    t.integer  "bank_fee"
+    t.float    "registration"
+    t.integer  "doc_fee"
+    t.integer  "smog"
+    t.integer  "misc_fee"
+    t.float    "rebate_tax"
+    t.integer  "customer_cash"
+    t.string   "bank_fee_plan"
+    t.string   "registration_plan"
+    t.string   "smog_plan"
+    t.string   "misc_fee_plan"
+    t.string   "rebate_tax_plan"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["user_id"], name: "index_quotes_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

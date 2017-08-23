@@ -10,6 +10,10 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: 'Lead'
 
+  has_many :quotes,
+    foreign_key: :user_id,
+    class_name: 'Quote'
+    
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)

@@ -1,4 +1,5 @@
 import React from 'react';
+import Dropzone from 'react-dropzone';
 
 class Lead extends React.Component {
   constructor(props) {
@@ -11,8 +12,11 @@ class Lead extends React.Component {
     this.props.destroyLead(id);
   }
 
-  render() {
+  handleDrop() {
 
+  }
+
+  render() {
     return (
       <div className="lead-container">
         <section className="lead-info">
@@ -20,7 +24,6 @@ class Lead extends React.Component {
           <div>{this.props.email} </div><br/>
           <div>{this.props.phoneNumber} </div><br/>
           <div>{this.props.createdAt} </div><br/>
-
         </section>
       <button  className="delete-lead-button" onClick={this.handleClick}>Delete</button>
       </div>

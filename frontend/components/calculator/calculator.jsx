@@ -1,5 +1,5 @@
 import React from 'react';
-import Display from './display.jsx';
+import Display from './display_container.js';
 
 class Calculator extends React.Component {
   constructor(props) {
@@ -36,7 +36,7 @@ class Calculator extends React.Component {
 
   display() {
     return this.state.hideDisplay ? <div></div> :
-      <Display registration={this.state.msrp * .0085} rebateTax={this.state.rebateTax}
+      <Display  calcState={this.state} registration={this.state.msrp * .0085} rebateTax={this.state.rebateTax}
         monthlyPayment={this.state.monthlyPayment} docFee={this.state.docFee} smog={this.state.smog}
         miscFee={this.state.miscFee} bankFee={this.state.bankFee} downPayment={this.state.downPayment}
         months={this.state.months} mileage={this.state.mileage} driveOff={this.state.driveOff}/>
@@ -249,7 +249,7 @@ class Calculator extends React.Component {
               </select>
             </section>
           </container>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Calculate" />
         </form>
         <br/>
         {this.display()}

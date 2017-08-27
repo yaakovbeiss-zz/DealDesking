@@ -1,13 +1,15 @@
 import React from 'react';
 
-class LeadForm extends React.Component {
+class UpdateLeadForm extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      name: '',
-      email: '',
-      phone_number: '',
-      address: '',
+      id: this.props.id,
+      name: this.props.name,
+      email: this.props.email,
+      phone_number: this.props.phone_number,
+      address: this.props.address,
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -21,34 +23,31 @@ class LeadForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const lead = this.state;
-    this.props.createLead(lead);
+
+    this.props.updateLead(lead)
     this.props.toggleLeadForm();
   }
 
   render() {
     return (
-      <div className="lead-container">
+      <div className="lead-container" onClick={this.props.toggleUpdateForm}>
         <form className="lead-info" onSubmit={this.handleSubmit}>
-          <label>Name
+          <label>
             <input type="text"
               value={this.state.name}
               onChange={this.update('name')}/>
           </label>
-          <label>Email
+          <label>
             <input type="text"
               value={this.state.email}
               onChange={this.update('email')}/>
           </label>
-          <label>Phone Number
+          <label>
             <input type="text"
               value={this.state.phone_number}
               onChange={this.update('phone_number')}/>
           </label>
-          <label>Address
-            <input type="text"
-              value={this.state.address}
-              onChange={this.update('address')}/>
-          </label>
+          <div>{this.props.createdAt} </div><br/>
           <input type="submit" value="Submit" />
         </form>
       </div>
@@ -56,4 +55,4 @@ class LeadForm extends React.Component {
   }
 }
 
-export default LeadForm;
+export default UpdateLeadForm;

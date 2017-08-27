@@ -3,7 +3,7 @@ import * as APIUtil from '../util/quote_api_util';
 export const RECEIVE_QUOTES = 'RECEIVE_QUOTES'
 
 export const receiveQuotes = (quotes) => ({
-  type: RECEIVE_LEADS,
+  type: RECEIVE_QUOTES,
   quotes
 })
 

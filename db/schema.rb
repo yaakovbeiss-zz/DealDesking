@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170823013650) do
+ActiveRecord::Schema.define(version: 20170825170759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 20170823013650) do
     t.integer  "user_id",      null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "makes", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "models", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "make_id",    null: false
   end
 
   create_table "quotes", force: :cascade do |t|
@@ -55,6 +68,13 @@ ActiveRecord::Schema.define(version: 20170823013650) do
     t.string   "rebate_tax_plan"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "mileage"
+    t.string   "doc_fee_plan"
+    t.float    "down_payment"
+    t.float    "drive_off"
+    t.float    "monthly_payment"
+    t.integer  "make_id",           null: false
+    t.integer  "model_id",          null: false
     t.index ["user_id"], name: "index_quotes_on_user_id", using: :btree
   end
 

@@ -7,39 +7,36 @@ class Calculator extends React.Component {
     this.state = {
       hideDisplay: true,
       msrp: 0,
-      sellPrice: 0,
+      sell_price: 0,
       profit: 0,
       rebate: 0,
       residual: 0,
-      moneyFactor: .00059,
+      money_factor: .00059,
       months: 36,
       mileage: 12000,
       tax: 9.25,
-      bankFee: 595,
-      bankFeePlan: 'Upfront',
+      bank_fee: 595,
+      bank_fee_plan: 'Upfront',
       registration: 0,
-      registrationPlan: 'Upfront',
-      docFee: 80,
-      docFeePlan: 'Upfront',
+      registration_plan: 'Upfront',
+      doc_fee: 80,
+      doc_fee_plan: 'Upfront',
       smog: 22,
-      smogPlan: 'Upfront',
-      miscFee: 22,
-      miscFeePlan: 'Upfront',
-      rebateTax: 0,
-      rebateTaxPlan: 'Upfront',
-      downPayment: 0,
-      driveOff: 0,
-      monthlyPayment: 0
+      smog_plan: 'Upfront',
+      misc_fee: 22,
+      misc_fee_plan: 'Upfront',
+      rebate_tax: 0,
+      rebate_tax_plan: 'Upfront',
+      down_payment: 0,
+      drive_off: 0,
+      monthly_payment: 0
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   display() {
     return this.state.hideDisplay ? <div></div> :
-      <Display  calcState={this.state} registration={this.state.msrp * .0085} rebateTax={this.state.rebateTax}
-        monthlyPayment={this.state.monthlyPayment} docFee={this.state.docFee} smog={this.state.smog}
-        miscFee={this.state.miscFee} bankFee={this.state.bankFee} downPayment={this.state.downPayment}
-        months={this.state.months} mileage={this.state.mileage} driveOff={this.state.driveOff}/>
+      <Display  calcState={this.state} />
   }
 
   toggleDisplay() {
@@ -73,12 +70,12 @@ class Calculator extends React.Component {
     let upfront = 0;
     let capped = 0;
     const plans = [
-      [this.state.bankFee, this.state.bankFeePlan],
-      [registration, this.state.registrationPlan],
-      [this.state.docFee, this.state.docFeePlan],
-      [this.state.smog, this.state.smogPlan],
-      [this.state.miscFee, this.state.miscFeePlan],
-      [this.state.rebateTax, this.state.rebateTaxPlan]
+      [this.state.bank_fee, this.state.bank_fee_plan],
+      [registration, this.state.registration_plan],
+      [this.state.doc_fee, this.state.doc_fee_plan],
+      [this.state.smog, this.state.smog_plan],
+      [this.state.misc_fee, this.state.misc_fee_plan],
+      [this.state.rebate_tax, this.state.rebate_tax_plan]
     ]
     plans.forEach((plan) => {
       if(plan[1] === 'Upfront') {
@@ -91,25 +88,26 @@ class Calculator extends React.Component {
   }
 
   calculatePayments() {
+    // calculation taken directly from www.edmunds.com
     const residualValue = this.state.msrp * (this.state.residual / 100)
     const registration = this.state.msrp * .0085
     const planPayments = this.calculateUpfront();
     const upfront = planPayments[0]
     const capped = planPayments[1]
-    const grossCapitalizedCost = this.state.sellPrice + capped + upfront;
-    const capCostReduction = (this.state.rebate * (1 - (this.state.tax / 100))) + this.state.downPayment + upfront;
+    const grossCapitalizedCost = this.state.sell_price + capped + upfront;
+    const capCostReduction = (this.state.rebate * (1 - (this.state.tax / 100))) + this.state.down_payment + upfront;
     const adjCapCost = grossCapitalizedCost - capCostReduction;
     const depreciation = adjCapCost - residualValue;
     const basePayment = depreciation / this.state.months;
-    const rentCharge = (adjCapCost + residualValue) * this.state.moneyFactor;
+    const rentCharge = (adjCapCost + residualValue) * this.state.money_factor;
     const preTaxPayment = basePayment + rentCharge;
     let monthlyPayment = preTaxPayment * (1 + (this.state.tax / 100));
-    let driveOff = upfront + this.state.downPayment + monthlyPayment;
+    let driveOff = upfront + this.state.down_payment + monthlyPayment;
 
     monthlyPayment = monthlyPayment.toFixed(2);
     driveOff = driveOff.toFixed(2);
-    this.setState({ ['driveOff']: driveOff });
-    this.setState({ ['monthlyPayment']: monthlyPayment });
+    this.setState({ ['drive_off']: driveOff });
+    this.setState({ ['monthly_payment']: monthlyPayment });
   }
 
   render() {
@@ -126,9 +124,9 @@ class Calculator extends React.Component {
             </label>
             <label>Sell Price
               <input type="number"
-                value={this.state.sellPrice || 0}
+                value={this.state.sell_price || 0}
                 onFocus={this.handleFocus}
-                onChange={this.update('sellPrice')}/>
+                onChange={this.update('sell_price')}/>
             </label>
             <label>Profit
               <input type="number"
@@ -142,7 +140,9 @@ class Calculator extends React.Component {
                 onFocus={this.handleFocus}
                 onChange={this.update('rebate')}/>
             </label>
+
           </section>
+
           <section className="calc-row">
           <label>Residual %
               <input type="number"
@@ -152,9 +152,9 @@ class Calculator extends React.Component {
             </label>
             <label>Money Factor
               <input type="number"
-                value={this.state.moneyFactor || 0}
+                value={this.state.money_factor || 0}
                 onFocus={this.handleFocus}
-                onChange={this.update('moneyFactor')}/>
+                onChange={this.update('money_factor')}/>
             </label>
             <label>Months
               <input type="number"
@@ -180,9 +180,9 @@ class Calculator extends React.Component {
 
               <label>Bank Fee
                 <input type="number"
-                  value={this.state.bankFee || 0}
+                  value={this.state.bank_fee || 0}
                   onFocus={this.handleFocus}
-                  onChange={this.update('bankFee')}/>
+                  onChange={this.update('bank_fee')}/>
               </label>
               <label>Registration
                 <input type="number"
@@ -192,9 +192,9 @@ class Calculator extends React.Component {
               </label>
               <label>Doc. Fee
                 <input type="number"
-                  value={this.state.docFee || 0}
+                  value={this.state.doc_fee || 0}
                   onFocus={this.handleFocus}
-                  onChange={this.update('docFee')}/>
+                  onChange={this.update('doc_fee')}/>
               </label>
               <label>Smog Fee
                 <input type="number"
@@ -204,52 +204,52 @@ class Calculator extends React.Component {
               </label>
               <label>Misc. Fee
                 <input type="number"
-                  value={this.state.miscFee || 0}
+                  value={this.state.misc_fee || 0}
                   onFocus={this.handleFocus}
-                  onChange={this.update('miscFee')}/>
+                  onChange={this.update('misc_fee')}/>
               </label>
               <label>Tax on Rebate
                 <input type="number"
                   value={ this.state.rebate - ((1 - (this.state.tax /100)) * this.state.rebate) || 0}
                   onFocus={this.handleFocus}
-                  onChange={this.update('rebateTax')}/>
+                  onChange={this.update('rebate_tax')}/>
               </label>
               <label>Customer Cash
                 <input type="number"
-                  value={this.state.downPayment || 0}
+                  value={this.state.down_payment || 0}
                   onFocus={this.handleFocus}
-                  onChange={this.update('downPayment')}/>
+                  onChange={this.update('down_payment')}/>
               </label>
             </section>
 
             <section className="calc-row">
-              <select onChange={this.updatePlan('bankFeePlan')}>
+              <select onChange={this.updatePlan('bank_fee_plan')}>
                 <option value="Upfront">Upfront</option>
                 <option value="Capped">Capped</option>
               </select>
-              <select onChange={this.updatePlan('registrationPlan')}>
+              <select onChange={this.updatePlan('registration_plan')}>
                 <option value="Upfront">Upfront</option>
                 <option value="Capped">Capped</option>
               </select>
-              <select onChange={this.updatePlan('docFeePlan')} >
+              <select onChange={this.updatePlan('doc_fee_plan')} >
                 <option value="Upfront">Upfront</option>
                 <option value="Capped">Capped</option>
               </select>
-              <select onChange={this.updatePlan('smogPlan')}>
+              <select onChange={this.updatePlan('smog_plan')}>
                 <option value="Upfront">Upfront</option>
                 <option value="Capped">Capped</option>
               </select>
-              <select onChange={this.updatePlan('miscFeePlan')}>
+              <select onChange={this.updatePlan('misc_fee_plan')}>
                 <option value="Upfront">Upfront</option>
                 <option value="Capped">Capped</option>
               </select>
-              <select onChange={this.updatePlan('rebateTaxPlan')}>
+              <select onChange={this.updatePlan('rebate_tax_plan')}>
                 <option value="Upfront">Upfront</option>
                 <option value="Capped">Capped</option>
               </select>
             </section>
           </container>
-          <input type="submit" value="Calculate" />
+          <button onClick={this.handleSubmit}>Calculate</button>
         </form>
         <br/>
         {this.display()}

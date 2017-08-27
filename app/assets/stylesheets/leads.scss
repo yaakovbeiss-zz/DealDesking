@@ -20,8 +20,16 @@
   padding: 10px;
   background-color: #cae8ff;
   align-items: center;
+  justify-content: center;
 }
-
+.lead-info label {
+  display: flex;
+  width: 140px;
+  padding: 10px;
+  background-color: #cae8ff;
+  align-items: center;
+  justify-content: center;
+}
 .delete-lead-button {
   display: none;
 }

@@ -14,23 +14,35 @@ export const receiveLeads = (leads) => ({
   leads
 })
 
+export const sortLeads = (e) => ({
+  type: SORT_LEADS_BY_NAME,
+  e
+})
+
 export const requestLeads = () => dispatch => (
   APIUtil.fetchLeads()
-    .then( (leads) => (
+    .then((leads) => (
       dispatch(receiveLeads(leads))
     ))
 );
 
 export const createLead = (lead) => dispatch => (
   APIUtil.createLead(lead)
-    .then( (lead) => (
+    .then((lead) => (
       dispatch(receiveLeads(lead))
     ))
 );
 
 export const destroyLead = (id) => dispatch => (
   APIUtil.destroyLead(id)
-    .then( (id) => (
+    .then((id) => (
       dispatch(receiveLeads(id))
+    ))
+);
+
+export const updateLead = (lead) => dispatch => (
+  APIUtil.updateLead(lead)
+    .then((leads) => (
+      dispatch(receiveLeads(leads))
     ))
 );

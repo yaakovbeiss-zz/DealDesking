@@ -6,7 +6,12 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy, :show]
     resources :users, only: [:create, :show]
     resources :leads, only: [:create, :destroy, :update, :index]
-    resources :quotes, only: [:create, :destroy, :update, :index]
+
+    resources :makes, only: [:index] do
+      resources :models, only: [:index] do
+        resources :quotes, only: [:create, :destroy, :update, :index]
+      end
+    end
   end
 
 end

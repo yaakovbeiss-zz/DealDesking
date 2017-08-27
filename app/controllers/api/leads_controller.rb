@@ -27,6 +27,7 @@ class Api::LeadsController < ApplicationController
     lead = Lead.find(params[:id])
 
     if lead.update(lead_params)
+      @leads = current_user.leads
       render :index
     else
       render json: lead, status: 422

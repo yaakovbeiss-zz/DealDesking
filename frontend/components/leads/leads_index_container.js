@@ -6,7 +6,7 @@ import { selectLeads } from '../../reducers/selectors';
 
 const mapStateToProps = ({ lead, session }) => {
   return {
-    leads: selectLeads(lead),
+    leads: lead.entities,
     loggedIn: Boolean(session.currentUser)
   }
 }

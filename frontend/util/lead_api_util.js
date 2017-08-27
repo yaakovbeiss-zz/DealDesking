@@ -25,3 +25,11 @@ export const destroyLead = (id) => (
     url: `api/leads/${id}`,
   })
 )
+
+export const updateLead = (lead) => (
+  $.ajax({
+    method: 'PATCH',
+    url: `api/leads/${lead.id}`,
+    data: { lead }
+  })
+);

@@ -10,6 +10,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 import LeadsIndex from './leads/leads_index_container';
 import Login from './login/login_container';
+// import Header from './header/header';
 
 const App = () => (
 

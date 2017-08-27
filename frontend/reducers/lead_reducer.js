@@ -18,7 +18,11 @@ const LeadReducer = (state = defaultState, action) => {
 
     case SORT_LEADS_BY_NAME:
       let sortedLeads = Object.values(state.entities);
-      sortedLeads.sort( (a,b) => a.name.localeCompare(b.name) );
+      if (action.reverse) {
+        sortedLeads.sort( (a,b) => b.name.localeCompare(a.name) );
+      } else {
+        sortedLeads.sort( (a,b) => a.name.localeCompare(b.name) );
+      }
       return {
         entities: sortedLeads
       }

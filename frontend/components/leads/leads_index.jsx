@@ -29,7 +29,6 @@ class LeadsIndex extends React.Component {
   render() {
     const leads = this.props.leads;
 
-    if (leads) {
       return (
         <div>
           <Header />
@@ -47,9 +46,7 @@ class LeadsIndex extends React.Component {
           </section>
         </div>
       )
-    } else { return null }
-      }
-
+    }
   }
 
 export default LeadsIndex;

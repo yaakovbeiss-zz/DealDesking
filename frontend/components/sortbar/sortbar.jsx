@@ -3,11 +3,20 @@ import React from 'react';
 class SortBar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      nameSorted: false,
+    }
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
-    this.props.sortLeads();
+    if (this.state.nameSorted){
+      this.props.sortLeads(true);
+      this.setState({ nameSorted: false })
+    } else {
+      this.props.sortLeads(false);
+      this.setState({ nameSorted: true })
+    }
   }
 
   render() {

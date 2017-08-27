@@ -14,9 +14,9 @@ export const receiveLeads = (leads) => ({
   leads
 })
 
-export const sortLeads = (e) => ({
+export const sortLeads = (reverse) => ({
   type: SORT_LEADS_BY_NAME,
-  e
+  reverse
 })
 
 export const requestLeads = () => dispatch => (

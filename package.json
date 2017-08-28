@@ -36,8 +36,8 @@
     "postinstall": "webpack"
   },
   "engines": {
-    "node": "8.0.0",
-    "npm": "4.2.0"
+    "node": "8.3.0",
+    "npm": "5.3.0"
   },
   "author": "",
   "license": "ISC"

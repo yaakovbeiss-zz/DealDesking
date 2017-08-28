@@ -11,13 +11,14 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import LeadsIndex from './leads/leads_index_container';
 import Login from './login/login_container';
 // import Header from './header/header';
+import TabBar from './tabbar/tabbar';
 
 const App = () => (
 
   <div>
     <Switch>
       <AuthRoute path="/login" component={Login} />
-      <ProtectedRoute exact path="/" component={LeadsIndex} />
+      <ProtectedRoute exact path="/" component={TabBar} />
     </Switch>
   </div>
 

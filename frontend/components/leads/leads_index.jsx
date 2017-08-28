@@ -34,7 +34,6 @@ class LeadsIndex extends React.Component {
         <div>
           <Header />
           <section className="leads-index-container">
-            <Calculator />
             <SearchBar />
             <h2>Leads</h2>
             <SortBar />

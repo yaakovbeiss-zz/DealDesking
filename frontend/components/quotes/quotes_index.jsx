@@ -7,6 +7,10 @@ class QuotesIndex extends React.Component {
 
   }
 
+  componentDidMount() {
+    this.props.requestQuotes();
+  }
+
   render() {
     const quotes = this.props.quotes
     return (

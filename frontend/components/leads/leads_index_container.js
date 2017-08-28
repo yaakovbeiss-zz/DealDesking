@@ -13,7 +13,7 @@ const mapStateToProps = ({ lead, session }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    requestLeads: () => dispatch(requestLeads())
+    requestLeads: () => dispatch(requestLeads()),
   }
 }
 

@@ -7,6 +7,13 @@ export const receiveQuotes = (quotes) => ({
   quotes
 })
 
+export const requestQuotes = () => dispatch => (
+  APIUtil.fetchQuotes()
+    .then((quotes) => (
+      dispatch(receiveQuotes(quotes))
+    ))
+)
+
 export const createQuote = (quote) => dispatch => (
   APIUtil.createQuote(quote)
     .then( (quote) => (

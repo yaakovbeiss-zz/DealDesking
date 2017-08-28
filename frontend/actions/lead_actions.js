@@ -2,7 +2,7 @@ import * as APIUtil from '../util/lead_api_util';
 
 export const RECEIVE_LEAD = 'RECEIVE_LEAD'
 export const RECEIVE_LEADS = 'RECEIVE_LEADS'
-export const SORT_LEADS_BY_NAME = 'SORT_LEADS_BY_NAME'
+export const SORT_LEADS_BY_FIELD = 'SORT_LEADS_BY_FIELD'
 
 export const receiveLead = (lead) => ({
   type: RECEIVE_LEAD,
@@ -14,9 +14,9 @@ export const receiveLeads = (leads) => ({
   leads
 })
 
-export const sortLeads = (reverse) => ({
-  type: SORT_LEADS_BY_NAME,
-  reverse
+export const sortLeads = (payload) => ({
+  type: SORT_LEADS_BY_FIELD,
+  payload
 })
 
 export const requestLeads = () => dispatch => (

@@ -4,7 +4,7 @@ import { sortLeads } from '../../actions/lead_actions';
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    sortLeads: (reverse) => dispatch(sortLeads(reverse))
+    sortLeads: (payload) => dispatch(sortLeads(payload))
   }
 }
 

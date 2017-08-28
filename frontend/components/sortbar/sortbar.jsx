@@ -4,18 +4,19 @@ class SortBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      nameSorted: false,
+      name: false,
+      email: false,
+      phone_number: false,
+      created_at: false,
     }
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    if (this.state.nameSorted){
-      this.props.sortLeads(true);
-      this.setState({ nameSorted: false })
-    } else {
-      this.props.sortLeads(false);
-      this.setState({ nameSorted: true })
+  handleClick(field) {
+    return e => {
+        const payload = { field: field, reverse: !this.state[field]}
+        this.props.sortLeads(payload);
+        this.setState({ [field]: !this.state[field] })
     }
   }
 
@@ -23,10 +24,10 @@ class SortBar extends React.Component {
     return (
       <div className="lead-container">
         <section className="lead-info">
-          <div onClick={this.handleClick}>Name</div><br/>
-          <div>Email</div><br/>
+          <div onClick={this.handleClick('name')}>Name</div><br/>
+          <div onClick={this.handleClick('email')}>Email</div><br/>
           <div>Phone</div><br/>
-          <div>Date</div><br/>
+          <div onClick={this.handleClick('created_at')}>Date</div><br/>
         </section>
       </div>
     )

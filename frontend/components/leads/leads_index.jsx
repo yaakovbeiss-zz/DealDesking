@@ -4,6 +4,7 @@ import Header from '../header/header';
 import Calculator from '../calculator/calculator';
 import SortBar from '../sortbar/sortbar_container';
 import NewLeadForm from './new_lead_form_container';
+import SearchBar from '../searchbar/search_bar_container';
 
 class LeadsIndex extends React.Component {
   constructor(props){
@@ -34,6 +35,7 @@ class LeadsIndex extends React.Component {
           <Header />
           <section className="leads-index-container">
             <Calculator />
+            <SearchBar />
             <h2>Leads</h2>
             <SortBar />
             <button onClick={this.toggleLeadForm}>New Lead</button>

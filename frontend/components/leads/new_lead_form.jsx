@@ -33,24 +33,22 @@ class NewLeadForm extends React.Component {
           <label>
             <input type="text"
               value={this.state.name}
-              placeholder={this.state.name}
+              placeholder="Enter name"
               onChange={this.update('name')}/>
           </label>
           <label>
             <input type="text"
               value={this.state.email}
+              placeholder="Enter email"
               onChange={this.update('email')}/>
           </label>
           <label>
             <input type="text"
               value={this.state.phone_number}
+              placeholder="Enter phone"
               onChange={this.update('phone_number')}/>
           </label>
-          <label>
-            <input type="text"
-              value={this.state.address}
-              onChange={this.update('address')}/>
-          </label>
+
           <input type="submit" value="Submit" />
         </form>
       </div>

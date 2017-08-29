@@ -12,6 +12,7 @@ import LeadsIndex from './leads/leads_index_container';
 import Login from './login/login_container';
 import Header from './header/header_container';
 import TabBar from './tabbar/tabbar';
+import Settings from './settings/settings_container';
 
 const App = () => (
 
@@ -20,6 +21,7 @@ const App = () => (
     <Switch>
       <AuthRoute path="/login" component={Login} />
       <ProtectedRoute exact path="/" component={TabBar} />
+      <ProtectedRoute exact path="/settings" component={Settings} />
     </Switch>
   </div>
 

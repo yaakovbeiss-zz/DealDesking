@@ -9,12 +9,17 @@ class UsernameButton extends React.Component {
       hide: true,
     }
     this.handleClick = this.handleClick.bind(this);
+    this.handleSettingsClick = this.handleSettingsClick.bind(this);
   }
 
   handleClick() {
     const payload = this.state;
     this.props.dropUsernameButton(payload)
     this.setState({ hide: !this.state.hide })
+  }
+
+  handleSettingsClick() {
+    this.props.history.push('/settings')
   }
 
   render() {
@@ -24,7 +29,7 @@ class UsernameButton extends React.Component {
         return (
           <section className="username-button-container">
             <button onClick={this.handleClick}>{username}</button>
-            <button>Settings</button>
+            <button onClick={this.handleSettingsClick}>Settings</button>
             <Logout />
           </section>
         )

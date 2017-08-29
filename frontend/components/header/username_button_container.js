@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import UsernameButton from './username_button';
 import { dropUsernameButton } from '../../actions/dropdown_actions';
 
@@ -15,7 +16,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(UsernameButton);
+)(UsernameButton));

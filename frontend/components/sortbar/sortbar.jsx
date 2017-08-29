@@ -7,7 +7,7 @@ class SortBar extends React.Component {
       name: false,
       email: false,
       phone_number: false,
-      created_at: false,
+      created_at: true,
     }
     this.handleClick = this.handleClick.bind(this);
   }

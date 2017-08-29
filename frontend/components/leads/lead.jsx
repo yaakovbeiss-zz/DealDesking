@@ -15,8 +15,10 @@ class Lead extends React.Component {
   }
 
   handleDelete() {
-    const id = this.props.id;
-    this.props.destroyLead(id);
+    if (window.confirm("Are you sure you want to delete this lead?")) {
+      const id = this.props.id;
+      this.props.destroyLead(id);
+    }
   }
 
   toggleUpdateForm() {
@@ -42,8 +44,10 @@ class Lead extends React.Component {
             <div onClick={this.toggleUpdateForm}>{this.props.phoneNumber} </div><br/>
             <div>{this.props.createdAt} </div><br/>
           </section>
-          <img className="delete-lead-button" src={window.images.delete_icon} onClick={this.handleDelete} />
-          <button onClick={this.toggleUpdateForm}>Edit</button>
+          <section className="icon-container">
+            <img className="lead-icon" src={window.images.edit_icon} onClick={this.toggleUpdateForm} />
+            <img className="lead-icon" src={window.images.delete_icon} onClick={this.handleDelete} />
+          </section>
         </div>
       )
     } else {

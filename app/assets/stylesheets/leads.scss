@@ -27,12 +27,13 @@
   align-items: center;
   justify-content: center;
 }
-img.delete-lead-button {
+img.lead-icon {
   display: none;
 }
-.lead-container:hover img.delete-lead-button{
+.lead-container:hover section img.lead-icon{
   display: flex;
   height: 25px;
+  padding: 12px;
   cursor: pointer;
   align-self: center;
 }

@@ -8,9 +8,8 @@ class TabBar extends React.Component {
     this.state = {
       openTab: 'LeadsIndex'
     }
-    // this.toggleTab = this.toggleTab.bind(this);
   }
-
+ 
   toggleTab(tab) {
     return e => this.setState({
       openTab: tab

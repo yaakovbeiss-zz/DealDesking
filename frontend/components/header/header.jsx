@@ -1,5 +1,5 @@
 import React from 'react';
-import Logout from '../login/logout';
+import UsernameButton from './username_button_container';
 
 class Header extends React.Component {
   constructor(props) {
@@ -7,12 +7,14 @@ class Header extends React.Component {
   }
 
   render() {
-    return (
-      <div className="header-container">
-        
-        <Logout />
-      </div>
-    )
+    if (this.props.loggedIn) {
+      return (
+        <div className="header-container">
+          Welcome
+          <UsernameButton />
+        </div>
+      )
+    } else { return null }
   }
 }
 

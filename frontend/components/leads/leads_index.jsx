@@ -32,7 +32,6 @@ class LeadsIndex extends React.Component {
 
       return (
         <div>
-          <Header />
           <section className="leads-index-container">
             <h2>Leads</h2>
             <SearchBar />

@@ -11,7 +11,6 @@ class Logout extends React.Component {
 
   handleClick() {
     this.props.logout();
-    this.props.history.push('/login')
   }
 
   render() {

@@ -66,7 +66,7 @@ class Login extends React.Component {
                />
              </label>
              <br/>
-             <input type="submit" value="Log In" className="submit" />
+             <button onClick={this.handleSubmit}>Log In</button>
          </form>
       </div>
   );

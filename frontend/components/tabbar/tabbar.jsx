@@ -9,7 +9,7 @@ class TabBar extends React.Component {
       openTab: 'LeadsIndex'
     }
   }
- 
+
   toggleTab(tab) {
     return e => this.setState({
       openTab: tab
@@ -33,7 +33,6 @@ class TabBar extends React.Component {
   render() {
     return (
       <div>
-        This is the tab bar.
         <button onClick={this.toggleTab('LeadsIndex')}>Leads</button>
         <button onClick={this.toggleTab('QuotesIndex')}>Quotes</button>
         {this.renderTab()}

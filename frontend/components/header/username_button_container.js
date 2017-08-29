@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import UsernameButton from './username_button';
-import { dropUsernameButton } from '../../actions/dropdown_actions';
+import { dropDown, closeDropDowns } from '../../actions/dropdown_actions';
 
 const mapStateToProps = ({ dropdown, session }) => {
   return {
@@ -12,7 +12,8 @@ const mapStateToProps = ({ dropdown, session }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    dropUsernameButton: (name) => dispatch(dropUsernameButton(name)),
+    dropDown: (name) => dispatch(dropDown(name)),
+    closeDropDowns: () => dispatch(closeDropDowns()),
   }
 }
 

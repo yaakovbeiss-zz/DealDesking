@@ -14,12 +14,14 @@ class UsernameButton extends React.Component {
 
   handleClick() {
     const payload = this.state;
-    this.props.dropUsernameButton(payload)
+    this.props.dropDown(payload)
     this.setState({ hide: !this.state.hide })
   }
 
   handleSettingsClick() {
     this.props.history.push('/settings')
+    this.setState({ hide: true })
+    this.props.closeDropDowns();
   }
 
   render() {
@@ -27,16 +29,21 @@ class UsernameButton extends React.Component {
       const username = this.props.session.currentUser.username;
       if (this.props.dropdown[this.state.name]) {
         return (
-          <section className="username-button-container">
-            <button onClick={this.handleClick}>{username}</button>
-            <button onClick={this.handleSettingsClick}>Settings</button>
-            <Logout />
-          </section>
+          <div>
+            <button onClick={this.handleClick}>{username}
+              <img src={window.images.gear_icon} />
+            </button>
+            <section className="dropdown">
+              <li className="dropdown-item" onClick={this.handleSettingsClick}>Settings</li>
+              <Logout />
+            </section>
+          </div>
         )
       } else {
         return (
-          <button onClick={this.handleClick}>
-            {username}</button>
+          <button onClick={this.handleClick}>{username}
+            <img src={window.images.gear_icon} />
+            </button>
         )
       }
     } else { return null }

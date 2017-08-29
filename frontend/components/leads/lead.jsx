@@ -4,7 +4,7 @@ import UpdateLeadForm from './update_lead_form_container';
 
 class Lead extends React.Component {
   constructor(props) {
-    super(props);
+    super(props);``
     this.state = {
       hideCalc: true,
       hideUpdateForm: true
@@ -42,7 +42,7 @@ class Lead extends React.Component {
             <div onClick={this.toggleUpdateForm}>{this.props.phoneNumber} </div><br/>
             <div>{this.props.createdAt} </div><br/>
           </section>
-          <button  className="delete-lead-button" onClick={this.handleDelete}>Delete</button>
+          <img className="delete-lead-button" src={window.images.delete_icon} onClick={this.handleDelete} />
           <button onClick={this.toggleUpdateForm}>Edit</button>
         </div>
       )

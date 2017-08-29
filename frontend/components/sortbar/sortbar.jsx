@@ -22,7 +22,7 @@ class SortBar extends React.Component {
 
   render() {
     return (
-      <div className="lead-container">
+      <div className="lead-container sortbar">
         <section className="lead-info">
           <div onClick={this.handleClick('name')}>Name</div><br/>
           <div onClick={this.handleClick('email')}>Email</div><br/>

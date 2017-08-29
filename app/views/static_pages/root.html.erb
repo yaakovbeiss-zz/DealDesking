@@ -4,7 +4,11 @@
   	window.currentuser = <%= render("api/users/show.json.jbuilder",
   		user: current_user).html_safe %>
   <% end %>
-  
+
+  window.images = {
+    delete_icon: "<%= image_path('delete_icon.png') %>",
+  }
+
 </script>
 
 <div id='root'></div>

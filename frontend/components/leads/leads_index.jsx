@@ -34,8 +34,8 @@ class LeadsIndex extends React.Component {
         <div>
           <Header />
           <section className="leads-index-container">
-            <SearchBar />
             <h2>Leads</h2>
+            <SearchBar />
             <SortBar />
             <button onClick={this.toggleLeadForm}>New Lead</button>
             {this.leadForm()}

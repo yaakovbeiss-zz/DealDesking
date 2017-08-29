@@ -4,11 +4,10 @@
 .lead-container {
   display: flex;
   height: 100px;
-  border: 1px solid #2bde73;
   margin: 3px;
   border-radius: 3px;
-  background-color: #cae8ff;
   justify-content: space-between;
+  box-shadow: 2px 1px 12px rgba(0,0,0,.35);
 }
 .lead-info {
   display: flex;
@@ -18,7 +17,6 @@
   display: flex;
   width: 140px;
   padding: 10px;
-  background-color: #cae8ff;
   align-items: center;
   justify-content: center;
 }
@@ -26,23 +24,19 @@
   display: flex;
   width: 140px;
   padding: 10px;
-  background-color: #cae8ff;
   align-items: center;
   justify-content: center;
 }
-.delete-lead-button {
+img.delete-lead-button {
   display: none;
 }
-.lead-container:hover .delete-lead-button{
+.lead-container:hover img.delete-lead-button{
   display: flex;
-}
-.delete-lead-button {
-  height: inherit;
-  width: 100px;
-  background-color: #d26e6e;
-  border-style: none;
-  font-size: 24px;
-  color: white;
-  padding: 18px;
+  height: 25px;
   cursor: pointer;
+  align-self: center;
+}
+.sortbar {
+  height: 41px;
+  font-size: 22px;
 }

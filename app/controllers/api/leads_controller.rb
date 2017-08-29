@@ -13,7 +13,7 @@ class Api::LeadsController < ApplicationController
   end
 
   def index
-    @leads = current_user.leads if current_user
+    @leads = current_user.leads.order('created_at DESC') if current_user
   end
 
   def destroy

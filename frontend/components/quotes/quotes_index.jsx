@@ -12,7 +12,7 @@ class QuotesIndex extends React.Component {
   }
 
   render() {
-    const quotes = this.props.quotes
+    const quotes = [];
     return (
       <div>
         <ul>

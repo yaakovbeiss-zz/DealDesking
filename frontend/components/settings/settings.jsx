@@ -7,8 +7,15 @@ class Settings extends React.Component {
       username: '',
       password: '',
       reEnterPassword: '',
+      message: '',
     }
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.changeUsername = this.changeUsername.bind(this);
+    this.changePassword = this.changePassword.bind(this);
+    this.message = this.message.bind(this);
+  }
+
+  componentWillMount(nextProps) {
+    this.clearErrors();
   }
 
   update(field) {
@@ -17,14 +24,21 @@ class Settings extends React.Component {
     });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const user = this.state;
+  changeUsername() {
+    let user = this.props.currentUser;
+    user.username = this.state.username;
+    this.props.updateUser(user);
+  }
+
+  changePassword() {
+    let user = this.props.currentUser;
 
     if( this.checkNewPassword()){
+      user.password = this.state.password;
       this.props.updateUser(user);
+      this.setState({ message: 'Password succesfully changed.'})
     } else {
-      console.log('passwords dont match')
+      this.setState({ message: "Passwords don't match."})
     }
   }
 
@@ -32,42 +46,45 @@ class Settings extends React.Component {
     return this.state.password === this.state.reEnterPassword
   }
 
+  clearErrors() {
+    this.setState({ message: '' })
+  }
+
+  message() {
+    return <span>{this.state.message}</span>
+  }
+
   render() {
     return (
-      <div className="">
-          <form onSubmit={this.handleSubmit} className="">
-              <br/>
-              <label>Username
+      <div className="settings-container">
+            <section>
+              Change Username
                 <input type="text"
                   value={this.state.username}
                   onChange={this.update('username')}
                   className=""
                   placeholder="Enter new username"
                 />
-              </label>
-              <br />
-              <input type="submit" value="Change Username" className="" />
-              <br />
-              <label>New Password
+              <button type="submit" className="" onClick={this.changeUsername}>Change Username</button>
+              </section>
+
+              <section>
+              Change Password
+                {this.message()}
                 <input type="password"
                   value={this.state.password}
                   onChange={this.update('password')}
                   className=""
                   placeholder="New Password"
                 />
-              </label>
-              <br />
-              <label>
                 <input type="password"
                   value={this.state.reEnterPassword}
                   onChange={this.update('reEnterPassword')}
                   className=""
                   placeholder="Re-Enter New Password"
                 />
-              </label>
-              <br/>
-              <br/>
-          </form>
+              <button type="submit" className="" onClick={this.changePassword}>Change Password</button>
+            </section>
        </div>
    );
   }

@@ -1,7 +1,7 @@
 class Api::MakesController < ApplicationController
 
   def index
-    @makes = Make.all
+    @makes = Make.includes(:models).all
   end
 
 end

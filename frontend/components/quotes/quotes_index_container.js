@@ -2,6 +2,12 @@ import { connect } from 'react-redux';
 import QuotesIndex from './quotes_index';
 import { requestQuotes } from '../../actions/quote_actions';
 
+const mapStateToProps = ({ quote }) => {
+  return {
+    quotes: quote.entities,
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     requestQuotes: () => dispatch(requestQuotes()),
@@ -9,6 +15,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(QuotesIndex);

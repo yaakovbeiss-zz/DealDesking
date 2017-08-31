@@ -10,7 +10,6 @@ user = User.create({ username: 'eli', password: 'password'})
 
 makes = {}
 models = {}
-trims = {}
 
 File.readlines('/Users/yaakovbeiss/Desktop/Deal Desking Car Info - Sheet1.csv').each do |line|
   record = line.split(",").map { |field| field.strip }
@@ -21,13 +20,10 @@ File.readlines('/Users/yaakovbeiss/Desktop/Deal Desking Car Info - Sheet1.csv').
     end
       make_id = makes["#{year}#{make}"].id
 
-    unless models[model]
-      models[model] = Model.create!({ name: model, make_id: make_id })
+    unless models["#{model}#{make_id}"]
+      models["#{model}#{make_id}"] = Model.create!({ name: model, make_id: make_id })
     end
-    model_id = models[model].id
+    model_id = models["#{model}#{make_id}"].id
 
-    unless trims[trim]
-      trims[trim] = Trim.create!({ name: trim, model_id: model_id })
-    end
-
+      Trim.create!({ name: trim, model_id: model_id })
 end

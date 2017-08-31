@@ -1,0 +1,22 @@
+.makes-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 5px;
+}
+.make {
+  display: flex;
+  flex-direction: column;
+  margin: 3px;
+  box-shadow: 2px 1px 12px rgba(0,0,0,.35);
+}
+.model-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 5px;
+}
+.models {
+  margin: 3px;
+  box-shadow: 2px 1px 12px rgba(0,0,0,.35);
+}

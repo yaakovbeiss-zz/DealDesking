@@ -13,7 +13,7 @@ class MakesIndex extends React.Component {
   render() {
     const makes = this.props.makes;
     return (
-      <makes>
+      <makes className="makes-container">
         {makes.map((make) => <Make name={make.name} year={make.year} models={make.models} key={make.id}/>)}
       </makes>
     )

@@ -10,9 +10,9 @@ class ModelsIndex extends React.Component {
   render() {
     const models = this.props.models;
     return (
-      <div>
+      <models>
         {models.map((model) => <Model name={model.name} trims={model.trims} key={model.id} /> ) }
-      </div>
+      </models>
     )
   }
 

@@ -21,10 +21,10 @@ class Make extends React.Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.toggleModels}>{this.props.name}</button>
+      <make>
+        <button onClick={this.toggleModels}>{this.props.name} {this.props.year}</button>
         {this.models()}
-      </div>
+      </make>
     )
   };
 }

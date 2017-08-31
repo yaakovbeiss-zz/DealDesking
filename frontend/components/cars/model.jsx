@@ -24,10 +24,10 @@ class Model extends React.Component {
     const name = this.props.name;
 
     return (
-      <div>
+      <model>
         <button onClick={this.toggleTrims}>{name}</button>
         {this.trims()}
-      </div>
+      </model>
     )
   }
 }

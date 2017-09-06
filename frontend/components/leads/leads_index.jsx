@@ -13,10 +13,15 @@ class LeadsIndex extends React.Component {
       hideLeadForm: true
     }
     this.toggleLeadForm = this.toggleLeadForm.bind(this)
+    this.getSortOrder = this.getSortOrder.bind(this);
   }
 
   componentDidMount() {
     this.props.requestLeads();
+  }
+
+  getSortOrder() {
+
   }
 
   toggleLeadForm() {
@@ -34,7 +39,7 @@ class LeadsIndex extends React.Component {
           <section className="leads-index-container">
             <h2>Leads</h2>
             <SearchBar />
-            <SortBar />
+            <SortBar getSortOrder={this.getSortOrder}/>
             <button onClick={this.toggleLeadForm}>New Lead</button>
             {this.leadForm()}
             <ul>

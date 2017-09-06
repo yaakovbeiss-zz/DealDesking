@@ -36,6 +36,7 @@ const LeadReducer = (state = defaultState, action) => {
       }
       return { entities: sortedLeads }
       break;
+      
     case RECEIVE_SEARCH:
       let results = action.results
 

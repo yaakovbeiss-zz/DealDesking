@@ -10,7 +10,7 @@ const TabBar = (...Tabs) => {
     }
 
     toggleTab(tab) {
-      return e => this.props.history.push(`${tab[0].WrappedComponent.name}`)
+      return e => this.props.history.push(`${tab[1]}`)
     }
 
     buttons() {
@@ -21,7 +21,7 @@ const TabBar = (...Tabs) => {
 
     tabs() {
       return Tabs.map((tab) => {
-        return <Route key={tab[1]} exact path={'/' + tab[0].WrappedComponent.name} component={tab[0]} />
+        return <Route key={tab[1]} exact path={'/' + tab[1]} component={tab[0]} />
       })
     }
 

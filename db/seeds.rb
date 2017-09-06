@@ -11,7 +11,7 @@ user = User.create({ username: 'eli', password: 'password'})
 makes = {}
 models = {}
 
-File.readlines('/Users/yaakovbeiss/Desktop/Deal Desking Car Info - Sheet1.csv').each do |line|
+File.readlines('db/Deal Desking Car Info - Sheet1.csv').each do |line|
   record = line.split(",").map { |field| field.strip }
     year, make, model, trim = record[0], record[1], record[2], record[3]
 

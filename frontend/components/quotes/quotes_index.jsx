@@ -18,10 +18,10 @@ class QuotesIndex extends React.Component {
     return (
       <div>
         <Calculator />
-        <MakesIndex />
         <ul>
           {quotes.map((quote) => <Quote quote={quote} />)}
-        </ul>
+        </ul >
+        <MakesIndex />
       </div>
     )
   }

@@ -1,43 +1,42 @@
 import React from 'react';
-import LeadsIndex from '../leads/leads_index_container';
-import QuotesIndex from '../quotes/quotes_index_container';
+import { Route, Switch } from 'react-router-dom';
 
-class TabBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      openTab: 'LeadsIndex'
+const TabBar = (...Tabs) => {
+  return class extends React.Component {
+    constructor(props) {
+      super(props);
+      this.buttons = this.buttons.bind(this);
+      this.tabs = this.tabs.bind(this);
     }
-  }
 
-  toggleTab(tab) {
-    return e => this.setState({
-      openTab: tab
-    })
-  }
-
-  renderTab() {
-    let openTab;
-    switch (this.state.openTab) {
-      case 'LeadsIndex':
-        return <LeadsIndex />
-        break;
-      case 'QuotesIndex':
-        return <QuotesIndex />
-        break;
-      default:
-        return <LeadsIndex />
+    toggleTab(tab) {
+      return e => this.props.history.push(`${tab[0].WrappedComponent.name}`)
     }
-  }
 
-  render() {
-    return (
-      <div>
-        <button onClick={this.toggleTab('LeadsIndex')}>Leads</button>
-        <button onClick={this.toggleTab('QuotesIndex')}>Quotes</button>
-        {this.renderTab()}
-      </div>
-    )
+    buttons() {
+      return Tabs.map((tab) => {
+        return <button key={tab[1]} onClick={this.toggleTab(tab)}>{tab[1]}</button>
+      })
+    }
+
+    tabs() {
+      return Tabs.map((tab) => {
+        return <Route key={tab[1]} exact path={'/' + tab[0].WrappedComponent.name} component={tab[0]} />
+      })
+    }
+
+    render() {
+      return (
+        <div>
+          {this.buttons()}
+          <Switch>
+            {this.tabs()}
+            <Route component={Tabs[0][0]} />
+          </Switch>
+        </div>
+      )
+    }
+
   }
 }
 

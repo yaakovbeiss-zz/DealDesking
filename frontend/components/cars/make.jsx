@@ -21,7 +21,7 @@ class Make extends React.Component {
 
   render() {
     return (
-      <make className="make">
+      <make className="car make">
         <span onClick={this.toggleModels}>{this.props.name} {this.props.year}</span>
         {this.models()}
       </make>

@@ -1,7 +1,7 @@
 class Api::ModelsController < ApplicationController
 
   def index
-    @models = Model.all
+    @models = Model.includes(:trims).all
   end
 
 end

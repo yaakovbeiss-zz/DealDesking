@@ -29,7 +29,6 @@ class LeadsIndex extends React.Component {
 
   render() {
     const leads = this.props.leads;
-
       return (
         <div>
           <section className="leads-index-container">

@@ -8,8 +8,8 @@ class Trim extends React.Component {
   render() {
     const name = this.props.name;
     return (
-      <div>
-        {name}
+      <div className="car trim">
+        <span>{name}</span>
       </div>
     )
   }

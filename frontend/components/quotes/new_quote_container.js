@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import Display from './display';
-import { receiveQuote, createQuote } from '../../actions/quote_actions';
+import NewQuote from './new_quote';
+import { createQuote } from '../../actions/quote_actions';
 
 const mapStateToProps = ({ quote }) => {
   return {
@@ -10,11 +10,11 @@ const mapStateToProps = ({ quote }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    receiveQuote: (quote) => dispatch(receiveQuote(quote))
+    createQuote: (quote) => dispatch(createQuote(quote)),
   }
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Display)
+)(NewQuote);

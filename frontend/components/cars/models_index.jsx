@@ -11,7 +11,7 @@ class ModelsIndex extends React.Component {
     const models = this.props.models;
     return (
       <models className="container models"><span>Models</span>
-        {models.map((model) => <Model name={model.name} trims={model.trims} selected={false} key={model.id} /> ) }
+        {models.map((model) => <Model name={model.name} trims={model.trims} id={model.id} key={model.id} /> ) }
       </models>
     )
   }

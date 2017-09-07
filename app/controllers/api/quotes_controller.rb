@@ -36,8 +36,8 @@ class Api::QuotesController < ApplicationController
   private
 
   def quote_params
-    params.require(:quote).permit(:user_id, :lead_id, :year, :make, :model,
-      :trim, :title, :msrp, :sell_price, :profit, :rebate, :residual, :money_factor,
+    params.require(:quote).permit(:user_id, :lead_id, :year, :make, :make_id, :model, :model_id,
+      :trim, :trim_id, :title, :msrp, :sell_price, :profit, :rebate, :residual, :money_factor,
       :months, :tax, :bank_fee, :registration, :doc_fee, :smog, :misc_fee, :rebate_tax,
       :customer_cash, :bank_fee_plan, :registration_plan, :smog_plan, :misc_fee_plan,
       :rebate_tax_plan)

@@ -23,7 +23,7 @@ class MakesIndex extends React.Component {
       <section>
         <makes className="container makes"><span>Makes</span>
           {makes.map((make) => <Make name={make.name} year={make.year} models={make.models}
-            selected={false} toggleParentClass={this.toggleClass} key={make.id}/>)}
+            id={make.id} toggleParentClass={this.toggleClass} key={make.id}/>)}
         </makes>
       </section>
     )

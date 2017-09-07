@@ -36,7 +36,7 @@ class Calculator extends React.Component {
 
   display() {
     return this.state.hideDisplay ? <div></div> :
-      <Display  calcState={this.state} />
+      <Display calcState={this.state} />
   }
 
   toggleDisplay() {
@@ -58,6 +58,7 @@ class Calculator extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.calculatePayments();
+    
     this.toggleDisplay();
   }
 

@@ -9,18 +9,12 @@ class Make extends React.Component {
       hideModels: true
     }
     this.toggleModels = this.toggleModels.bind(this);
-    this.toggleClass = this.toggleClass.bind(this);
-  }
-
-  toggleClass(e) {
-    return this.state.hideModels ?  'make' : 'make expanded'
   }
 
   toggleModels(e) {
     this.props.toggleParentClass(e);
-    this.props.receiveQuote({make: this.props.name, year: this.props.year});
-    this.setState({ selected: !this.state.selected,
-      hideModels: !this.state.hideModels })
+    this.props.receiveQuote({make: this.props.name, year: this.props.year, make_id: this.props.id});
+    this.setState({ hideModels: !this.state.hideModels })
   }
 
   models() {
@@ -30,9 +24,9 @@ class Make extends React.Component {
 
   render() {
     return (
-      <make onClick={this.toggleModels} className={this.toggleClass()}>
-        <span >{this.props.name} {this.props.year}</span>
-        {this.models()}
+      <make onClick={this.toggleModels} className="make">
+          <span >{this.props.name} {this.props.year}</span>
+          {this.models()}
       </make>
     )
   };

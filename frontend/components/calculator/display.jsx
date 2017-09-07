@@ -11,7 +11,7 @@ class Display extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const quote = this.props.calcState;
+    const quote = this.props.currentQuote;
     this.props.receiveQuote(quote);
   }
 

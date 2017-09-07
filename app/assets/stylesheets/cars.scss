@@ -8,6 +8,9 @@
 .container > span {
   text-decoration: underline;
 }
+.makes {
+  position: relative;
+}
 .make {
   display: flex;
   flex-direction: column;
@@ -27,18 +30,22 @@
   background-color: aliceblue;
   cursor: pointer;
 }
-.expanded {
-  height: inherit;
-  width: 250px;
+.models {
+  left: 145px;
+  position: absolute;
   display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-}
-.expanded > span {
-  height: inherit;
+  top: 0px;
 }
 .model {
+  display: flex;
+  flex-direction: column;
   margin: 3px;
+  box-shadow: 2px 1px 12px rgba(0,0,0,.35);
+  height: 42px;
+  border-radius: 3px;
+  justify-content: center;
+  width: 150px;
+  align-items: center;
 }
 .model span:hover {
   background-color: aliceblue;

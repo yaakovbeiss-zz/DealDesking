@@ -28,7 +28,9 @@ const TabBar = (...Tabs) => {
     render() {
       return (
         <div>
-          {this.buttons()}
+          <tabs className="tabs">
+            {this.buttons()}
+          </tabs>
           <Switch>
             {this.tabs()}
             <Route component={Tabs[0][0]} />

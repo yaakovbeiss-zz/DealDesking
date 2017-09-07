@@ -1,7 +1,6 @@
 import React from 'react';
 import Quote from './quote';
-import Calculator from '../calculator/calculator';
-import MakesIndex from '../cars/makes_index_container';
+import NewQuote from './new_quote_container';
 
 class QuotesIndex extends React.Component {
   constructor(props){
@@ -17,11 +16,10 @@ class QuotesIndex extends React.Component {
     const quotes = this.props.quotes;
     return (
       <div>
-        <Calculator />
+        <NewQuote />
         <ul>
           {quotes.map((quote) => <Quote quote={quote} />)}
         </ul >
-        <MakesIndex />
       </div>
     )
   }

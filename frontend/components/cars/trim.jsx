@@ -6,8 +6,9 @@ class Trim extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    const quote = {trim: this.props.name}
+  handleClick(e) {
+    e.stopPropagation();
+    const quote = {trim: this.props.name, trim_id: this.props.id}
     this.props.receiveQuote(quote);
   }
 

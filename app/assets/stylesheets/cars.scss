@@ -4,22 +4,49 @@
   justify-content: space-around;
   padding: 5px;
   margin-left: 30px;
-  box-shadow: 2px 1px 12px rgba(0,0,0,.35);
-  border: 1px solid black;
 }
-.car span {
-  
+.container > span {
+  text-decoration: underline;
 }
 .make {
   display: flex;
   flex-direction: column;
   margin: 3px;
-
+  box-shadow: 2px 1px 12px rgba(0,0,0,.35);
+  height: 42px;
+  border-radius: 3px;
+  justify-content: center;
+  width: 150px;
+  align-items: center;
+}
+.make:hover {
+  background-color: aliceblue;
+  cursor: pointer;
+}
+.model:hover {
+  background-color: aliceblue;
+  cursor: pointer;
+}
+.expanded {
+  height: inherit;
+  width: 250px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.expanded > span {
+  height: inherit;
 }
 .model {
   margin: 3px;
-
+}
+.model span:hover {
+  background-color: aliceblue;
+  cursor: pointer;
 }
 .trim {
 
+}
+.opaque {
+  opacity: .3;
 }

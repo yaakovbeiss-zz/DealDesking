@@ -9,7 +9,7 @@ class TrimsIndex extends React.Component {
   render() {
     const trims = this.props.trims;
     return (
-      <trims className="container trim">
+      <trims className="container trim"><span>Trims</span>
         {trims.map((trim) => <Trim name={trim.name} key={trim.id} /> ) }
       </trims>
     )

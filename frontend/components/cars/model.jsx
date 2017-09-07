@@ -10,7 +10,8 @@ class Model extends React.Component {
     this.toggleTrims = this.toggleTrims.bind(this)
   }
 
-  toggleTrims() {
+  toggleTrims(e) {
+    e.stopPropagation();
     this.setState({ hideTrims: !this.state.hideTrims })
   };
 
@@ -24,8 +25,8 @@ class Model extends React.Component {
     const name = this.props.name;
 
     return (
-      <model className="car model">
-        <span onClick={this.toggleTrims}>{name}</span>
+      <model onClick={this.toggleTrims} className="model">
+        <span>{name}</span>
         {this.trims()}
       </model>
     )

@@ -1,5 +1,5 @@
 import React from 'react';
-import TrimsIndex from '../cars/trims_index';
+import TrimsIndex from '../cars/trims_index_container';
 
 class Model extends React.Component {
   constructor(props){

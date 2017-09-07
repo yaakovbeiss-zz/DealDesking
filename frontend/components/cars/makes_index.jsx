@@ -10,10 +10,10 @@ class MakesIndex extends React.Component {
     this.props.requestMakes();
   }
 
-  className(make_id) {
+  className(id) {
     if (this.props.currentQuote.make_id) {
-      if (this.props.currentQuote.make_id === make_id) {
-        return "detail"
+      if (this.props.currentQuote.make_id === id) {
+        return "detail selected"
       } else {
         return "detail opaque";
       }

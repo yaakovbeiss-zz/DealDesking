@@ -15,7 +15,7 @@ class Trim extends React.Component {
   render() {
     const name = this.props.name;
     return (
-      <trim onClick={this.handleClick} className="detail">
+      <trim onClick={this.handleClick} className={this.props.className}>
         <span>{name}</span>
       </trim>
     )

@@ -6,11 +6,23 @@ class TrimsIndex extends React.Component {
     super(props);
   }
 
+  className(id) {
+    if (this.props.currentQuote.trim_id) {
+      if (this.props.currentQuote.trim_id === id) {
+        return "detail selected"
+      } else {
+        return "detail opaque";
+      }
+    } else {
+      return "detail"
+    }
+  }
+
   render() {
     const trims = this.props.trims;
     return (
       <trims className="container detail-list"><span>Trims</span>
-        {trims.map((trim) => <Trim name={trim.name} id={trim.id} key={trim.id} /> ) }
+        {trims.map((trim) => <Trim name={trim.name} id={trim.id} key={trim.id} className={this.className(trim.id)} /> ) }
       </trims>
     )
   }

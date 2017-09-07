@@ -10,7 +10,7 @@ class ModelsIndex extends React.Component {
   className(id) {
     if (this.props.currentQuote.model_id) {
       if (this.props.currentQuote.model_id === id) {
-        return "detail"
+        return "detail selected"
       } else {
         return "detail opaque";
       }

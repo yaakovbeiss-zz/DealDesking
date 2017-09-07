@@ -2,6 +2,12 @@ import { connect } from 'react-redux';
 import Make from './make';
 import { receiveQuote } from '../../actions/quote_actions';
 
+const mapStateToProps = ({ quote }) => {
+  return {
+    currentQuote: quote.currentQuote,
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     receiveQuote: (quote) => dispatch(receiveQuote(quote))
@@ -9,6 +15,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Make)

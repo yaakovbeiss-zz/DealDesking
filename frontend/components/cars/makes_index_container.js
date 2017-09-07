@@ -2,9 +2,10 @@ import { connect } from 'react-redux';
 import MakesIndex from './makes_index';
 import { requestMakes } from '../../actions/make_actions';
 
-const mapStateToProps = ({ car }) => {
+const mapStateToProps = ({ car, quote }) => {
   return {
-    makes: car.makes
+    makes: car.makes,
+    currentQuote: quote.currentQuote,
   }
 }
 

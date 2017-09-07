@@ -12,22 +12,24 @@ class Model extends React.Component {
 
   toggleTrims(e) {
     e.stopPropagation();
-    const quote = {model: this.props.name, model_id: this.props.id}
+    const quote = {model: this.props.name, model_id: this.props.id, trim_id: null, trim: ''}
     this.props.receiveQuote(quote);
     this.setState({ hideTrims: !this.state.hideTrims })
   };
 
   trims() {
     const trims = this.props.trims;
-    return this.state.hideTrims ? <div></div> :
-    <TrimsIndex trims={trims} />
+
+    return this.props.currentQuote.model_id === this.props.id ?
+    <TrimsIndex trims={trims} /> :
+    <div></div>
   }
 
   render() {
     const name = this.props.name;
 
     return (
-      <model onClick={this.toggleTrims} className="model">
+      <model onClick={this.toggleTrims} className={this.props.className}>
         <span>{name}</span>
         {this.trims()}
       </model>

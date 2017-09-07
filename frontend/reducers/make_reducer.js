@@ -1,7 +1,7 @@
-import { RECEIVE_MAKES } from '../actions/make_actions';
+import { RECEIVE_MAKES, SELECT_DETAIL } from '../actions/make_actions';
 
 const defaultState = {
-  makes: []
+  makes: [],
 }
 
 const CarReducer = (state = defaultState, action) => {
@@ -13,6 +13,10 @@ const CarReducer = (state = defaultState, action) => {
         makes: makes
       }
       break;
+
+    case SELECT_DETAIL:
+      break;
+
     default:
       return state;
   }

@@ -12,6 +12,8 @@ class Model extends React.Component {
 
   toggleTrims(e) {
     e.stopPropagation();
+    const quote = {model: this.props.name}
+    this.props.receiveQuote(quote);
     this.setState({ hideTrims: !this.state.hideTrims })
   };
 

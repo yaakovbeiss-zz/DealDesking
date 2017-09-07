@@ -1,5 +1,5 @@
 import React from 'react';
-import Model from './model';
+import Model from './model_container';
 
 class ModelsIndex extends React.Component {
   constructor(props){

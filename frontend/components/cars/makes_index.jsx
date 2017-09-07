@@ -1,5 +1,5 @@
 import React from 'react';
-import Make from './make';
+import Make from './make_container';
 
 class MakesIndex extends React.Component {
   constructor(props){

@@ -18,6 +18,7 @@ class Make extends React.Component {
 
   toggleModels(e) {
     this.props.toggleParentClass(e);
+    this.props.receiveQuote({make: this.props.name, year: this.props.year});
     this.setState({ selected: !this.state.selected,
       hideModels: !this.state.hideModels })
   }

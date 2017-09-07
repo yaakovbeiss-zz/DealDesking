@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Display from './display';
+import Trim from './trim';
 import { receiveQuote } from '../../actions/quote_actions';
 
 const mapDispatchToProps = dispatch => {
@@ -11,4 +11,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   null,
   mapDispatchToProps
-)(Display)
+)(Trim)

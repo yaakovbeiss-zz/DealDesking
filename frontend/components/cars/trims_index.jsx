@@ -1,5 +1,5 @@
 import React from 'react';
-import Trim from './trim';
+import Trim from './trim_container';
 
 class TrimsIndex extends React.Component {
   constructor(props){

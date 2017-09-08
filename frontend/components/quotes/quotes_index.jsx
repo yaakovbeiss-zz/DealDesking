@@ -5,7 +5,6 @@ import NewQuote from './new_quote_container';
 class QuotesIndex extends React.Component {
   constructor(props){
     super(props);
-
   }
 
   componentDidMount() {
@@ -15,12 +14,11 @@ class QuotesIndex extends React.Component {
   render() {
     const quotes = this.props.quotes;
     return (
-      <div>
-        <NewQuote />
+      <quotes className="quotes-container">
         <ul>
-          {quotes.map((quote) => <Quote quote={quote} />)}
+          {quotes.map((quote) => <Quote key={quote.id} quote={quote} />)}
         </ul >
-      </div>
+      </quotes>
     )
   }
 }

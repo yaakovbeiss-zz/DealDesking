@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Display from './display';
+import Calculator from './calculator';
 import { receiveQuote, createQuote } from '../../actions/quote_actions';
 
 const mapStateToProps = ({ quote }) => {
@@ -18,4 +18,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Display)
+)(Calculator)

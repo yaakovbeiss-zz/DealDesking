@@ -13,7 +13,7 @@ class Api::QuotesController < ApplicationController
   end
 
   def index
-    @quotes = current_user.quotes
+    @quotes = current_user.quotes.includes(:lead)
   end
 
   def destroy
@@ -40,7 +40,7 @@ class Api::QuotesController < ApplicationController
       :trim, :trim_id, :title, :msrp, :sell_price, :profit, :rebate, :residual, :money_factor,
       :months, :tax, :bank_fee, :registration, :doc_fee, :smog, :misc_fee, :rebate_tax,
       :customer_cash, :bank_fee_plan, :registration_plan, :smog_plan, :misc_fee_plan,
-      :rebate_tax_plan)
+      :rebate_tax_plan, :mileage, :doc_fee_plan, :down_payment, :drive_off, :monthly_payment)
   end
 
 end

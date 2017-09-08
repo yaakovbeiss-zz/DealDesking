@@ -21,7 +21,6 @@ const QuoteReducer = (state = defaultState, action) => {
 
     case RECEIVE_QUOTE:
       const quote = merge({}, state.currentQuote, action.quote);
-      
       return merge({}, state, {
         currentQuote: quote
       })

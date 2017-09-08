@@ -13,10 +13,11 @@ import Header from './header/header_container';
 import TabBar from './tabbar/tabbar';
 import LeadsIndex from './leads/leads_index_container';
 import QuotesIndex from './quotes/quotes_index_container';
+import NewQuote from './quotes/new_quote_container';
 import Settings from './settings/settings_container';
 
 
-const Tabs = TabBar([LeadsIndex, 'Leads'], [QuotesIndex, 'Quotes'])
+const Tabs = TabBar([LeadsIndex, 'Leads'], [QuotesIndex, 'Quotes'], [NewQuote, 'New Quote'])
 
 const App = () => (
 

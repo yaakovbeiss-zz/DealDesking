@@ -58,7 +58,8 @@ class Calculator extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.calculatePayments();
-    
+    const quote = this.state;
+    this.props.receiveQuote(quote);
     this.toggleDisplay();
   }
 
@@ -107,8 +108,8 @@ class Calculator extends React.Component {
 
     monthlyPayment = monthlyPayment.toFixed(2);
     driveOff = driveOff.toFixed(2);
-    this.setState({ ['drive_off']: driveOff });
-    this.setState({ ['monthly_payment']: monthlyPayment });
+    this.setState({ drive_off: driveOff });
+    this.setState({ monthly_payment: monthlyPayment });
   }
 
   render() {

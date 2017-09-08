@@ -1,5 +1,5 @@
 import React from 'react';
-import Calculator from '../calculator/calculator';
+import Calculator from '../calculator/calculator_container';
 import Display from '../calculator/display';
 import MakesIndex from '../cars/makes_index_container';
 
@@ -25,21 +25,25 @@ class NewQuote extends React.Component {
             <section>
           <span>Year</span>
             <input type="text"
+              readOnly
               value={this.props.currentQuote.year}
               onFocus={this.handleFocus}
               />
           <span>Make</span>
             <input type="text"
+              readOnly
               value={this.props.currentQuote.make}
               onFocus={this.handleFocus}
               />
           <span>Model</span>
             <input type="text"
+              readOnly
               value={this.props.currentQuote.model}
               onFocus={this.handleFocus}
               />
           <span>Trim</span>
             <input type="text"
+              readOnly
               value={this.props.currentQuote.trim}
               onFocus={this.handleFocus}
               />

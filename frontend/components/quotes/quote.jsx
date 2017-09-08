@@ -6,10 +6,20 @@ class Quote extends React.Component {
   }
 
   render() {
+    const quote = this.props.quote;
+    
     return (
-      <div>
-        this is a quote
-      </div>
+      <quote className="quote">
+        Year: {quote.year}
+        Make: {quote.make}
+        Model: {quote.model}
+        Trim: {quote.trim}
+        Months: {quote.months}
+        Msrp: {quote.msrp}
+        Profit: {quote.profit}
+        Sell Price: {quote.sell_price}
+        Monthly Payment: {quote.monthly_payment}
+      </quote>
     )
   }
 }

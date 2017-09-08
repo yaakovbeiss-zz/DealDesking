@@ -2,3 +2,17 @@
   display: flex;
   justify-content: space-between;
 }
+.quotes-container > ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.quote {
+  display: flex;
+  margin: 3px;
+  width: 250px;
+  height: 250px;
+  border-radius: 3px;
+  justify-content: space-between;
+  box-shadow: 2px 1px 12px rgba(0, 0, 0, 0.35)
+}

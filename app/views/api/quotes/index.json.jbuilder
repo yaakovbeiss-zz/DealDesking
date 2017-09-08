@@ -13,6 +13,7 @@ json.array! @quotes.each do |quote|
   json.rebate quote.rebate
   json.residual quote.residual
   json.months quote.months
+  json.monthly_payment quote.monthly_payment
   json.tax quote.tax
   json.bank_fee quote.bank_fee
   json.registration quote.registration

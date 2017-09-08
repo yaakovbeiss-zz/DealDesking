@@ -17,7 +17,9 @@
   box-shadow: 2px 1px 12px rgba(0, 0, 0, 0.35);
   cursor: pointer;
 }
-
+.quote-container:hover {
+  background-color: aliceblue;
+}
 .quote {
   padding: 3px;
   display: flex;
@@ -27,4 +29,10 @@
 }
 .quote > span {
   margin: 3px;
+}
+.quote-expanded {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  height: 75%;
 }

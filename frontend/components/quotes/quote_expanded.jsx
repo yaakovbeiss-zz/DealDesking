@@ -5,6 +5,7 @@ class QuoteExpanded extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.handleModalClick = this.handleModalClick.bind(this);
   }
 
   handleClick(e) {
@@ -12,13 +13,25 @@ class QuoteExpanded extends React.Component {
     this.props.closeModal();
   }
 
+  handleModalClick(e) {
+    e.stopPropagation();
+  }
+
   render() {
+    const quote = this.props.quote;
     return (
       <div onClick={this.handleClick} className="modal-container">
-        <div className="modal quote-expanded">
-          quote expanded
-          <Calculator />
-        </div>
+        <section onClick={this.handleModalClick} className="modal quote-expanded">
+          <span className="detail selected">{quote.year}</span>
+          <span className="detail selected">{quote.make}</span>
+          <span className="detail selected">{quote.model}</span>
+          <span className="detail selected">{quote.trim}</span>
+          <span className="detail selected">{quote.msrp}</span>
+          <span className="detail selected">{quote.sell_price}</span>
+          <span className="detail selected">{quote.residual}</span>
+          <span className="detail selected"></span>
+          <span className="detail selected"></span>
+        </section>
       </div>
     )
   }

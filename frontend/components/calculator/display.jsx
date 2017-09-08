@@ -4,7 +4,6 @@ class Display extends React.Component {
   constructor(props){
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this)
-    debugger
   }
 
   handleSubmit(e) {
@@ -13,6 +12,7 @@ class Display extends React.Component {
     this.props.receiveQuote(quote);
     if (quote.make_id && quote.model_id && quote.trim_id) {
       this.props.createQuote(quote);
+      this.props.history.push('/Quotes');
     } else {
       window.alert("Please enter a make, model and trim.")
     }

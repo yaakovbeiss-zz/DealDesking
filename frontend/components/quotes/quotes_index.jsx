@@ -1,5 +1,5 @@
 import React from 'react';
-import Quote from './quote';
+import Quote from './quote_container';
 import NewQuote from './new_quote_container';
 
 class QuotesIndex extends React.Component {

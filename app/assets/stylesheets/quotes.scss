@@ -7,12 +7,24 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
-.quote {
+.quote-container {
   display: flex;
   margin: 3px;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 160px;
   border-radius: 3px;
-  justify-content: space-between;
-  box-shadow: 2px 1px 12px rgba(0, 0, 0, 0.35)
+  font-size: 16px;
+  box-shadow: 2px 1px 12px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+}
+
+.quote {
+  padding: 3px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.quote > span {
+  margin: 3px;
 }

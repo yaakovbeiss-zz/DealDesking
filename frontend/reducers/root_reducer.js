@@ -5,6 +5,7 @@ import LeadReducer from './lead_reducer';
 import QuoteReducer from './quote_reducer';
 import CarReducer from './make_reducer';
 import DropdownReducer from './dropdown_reducer';
+import ModalReducer from './modal_reducer';
 
 export default combineReducers({
   session: SessionReducer,
@@ -12,4 +13,5 @@ export default combineReducers({
   quote: QuoteReducer,
   car: CarReducer,
   dropdown: DropdownReducer,
+  modal: ModalReducer,
 })

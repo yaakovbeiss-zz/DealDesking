@@ -10,6 +10,7 @@ json.array! @quotes.each do |quote|
   json.msrp quote.msrp
   json.sell_price quote.sell_price
   json.profit quote.profit
+  json.money_factor quote.money_factor
   json.rebate quote.rebate
   json.residual quote.residual
   json.months quote.months

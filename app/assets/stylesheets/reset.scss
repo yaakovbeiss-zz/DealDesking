@@ -58,11 +58,14 @@ button {
   cursor: pointer;
   background: #0084bf;
   padding: 0px 17px;
-  width: auto;
+  width: max-content;
   margin: 3px;
   border: none;
   border-radius: 2px;
   box-shadow: 2px 1px 12px rgba(0,0,0,.35);
+}
+button:focus {
+  outline: none;
 }
 label {
   text-align: center;

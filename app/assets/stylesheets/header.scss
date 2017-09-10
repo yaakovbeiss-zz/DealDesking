@@ -35,5 +35,25 @@
 }
 .tabs {
   display: flex;
-  margin: 10px;
+  margin-bottom: 15px;
+}
+.tab-selected {
+  border-radius: 2px 2px 0 0;
+  border-top: 2px solid #0084bf;
+  border-left: 2px solid #0084bf;
+  border-right: 2px solid #0084bf;
+  border-bottom: 2px solid white;
+  z-index: 10;
+}
+.tab button {
+  opacity: .5;
+  border-bottom: 2px solid #0084bf;
+}
+.tab {
+  border-bottom: 2px solid #0084bf;
+}
+.component-container {
+  border-bottom: 2px solid #0084bf;
+  height: auto;
+  width: 100%;
 }

@@ -24,29 +24,17 @@ class NewQuote extends React.Component {
             <MakesIndex />
             <section>
           <span>Year</span>
-            <input type="text"
-              readOnly
-              value={this.props.currentQuote.year}
-              onFocus={this.handleFocus}
-              />
+            <span> {this.props.currentQuote.year} </span>
+
           <span>Make</span>
-            <input type="text"
-              readOnly
-              value={this.props.currentQuote.make}
-              onFocus={this.handleFocus}
-              />
+            <span> {this.props.currentQuote.make} </span>
+
           <span>Model</span>
-            <input type="text"
-              readOnly
-              value={this.props.currentQuote.model}
-              onFocus={this.handleFocus}
-              />
+            <span> {this.props.currentQuote.model} </span>
+
           <span>Trim</span>
-            <input type="text"
-              readOnly
-              value={this.props.currentQuote.trim}
-              onFocus={this.handleFocus}
-              />
+            <span> {this.props.currentQuote.trim} </span>
+
           <Calculator />
         </section>
 

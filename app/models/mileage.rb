@@ -1,8 +1,8 @@
 class Mileage < ApplicationRecord
 
-  validates :quote, :mileage, presence: true
+  validates :mileage, presence: true
 
-  belongs_to :quote
+  belongs_to :quote, optional: true
   has_many :residuals
 
 end

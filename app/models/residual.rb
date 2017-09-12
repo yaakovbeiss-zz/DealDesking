@@ -1,8 +1,8 @@
 class Residual < ApplicationRecord
 
-  validates :term, :residual, presence: true
+  validates :residual, presence: true
 
-  belongs_to :term
-  belongs_to :mileage
+  belongs_to :term, optional: true
+  belongs_to :mileage, optional: true
 
 end

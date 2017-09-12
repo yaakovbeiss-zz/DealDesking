@@ -1,7 +1,7 @@
 class MoneyFactor < ApplicationRecord
 
-    validates :term, :money_factor, presence: true
+  validates :money_factor, presence: true
 
-    belongs_to :term
+  belongs_to :term, optional: true
 
 end

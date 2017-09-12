@@ -1,7 +1,7 @@
 class Rebate < ApplicationRecord
 
-  validates :term, :amount, presence: true
+  validates :amount, presence: true
 
-  belongs_to :term
+  belongs_to :term, optional: true
 
 end

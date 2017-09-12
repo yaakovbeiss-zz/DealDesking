@@ -38,8 +38,8 @@ class Display extends React.Component {
         <span>  Monthly Payment: {display.monthly_payment} </span>
         <span>Months: {display.months} </span>
         <span>Mileage: {display.mileage} </span>
+        <button onClick={this.handleSubmit}>Create Quote</button>
       </section>
-      <button onClick={this.handleSubmit}>Create Quote</button>
       </div>
     )
   }

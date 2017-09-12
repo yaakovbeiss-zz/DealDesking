@@ -8,6 +8,10 @@ class QuoteExpanded extends React.Component {
     this.handleModalClick = this.handleModalClick.bind(this);
   }
 
+  componentDidMount() {
+    
+  }
+
   handleClick(e) {
     e.stopPropagation();
     this.props.closeModal();
@@ -38,17 +42,17 @@ class QuoteExpanded extends React.Component {
             <span className="detail selected">Residual</span>
           </section>
           <section className="row">
-            <span className="detail selected">{quote.year}</span>
-            <span className="detail selected">{quote.make}</span>
-            <span className="detail selected">{quote.model}</span>
-            <span className="detail selected">{quote.trim}</span>
-            <span className="detail selected">{quote.msrp}</span>
-            <span className="detail selected">{quote.sell_price}</span>
-            <span className="detail selected">{quote.residual}</span>
-            <span className="detail selected">{quote.months}</span>
-            <span className="detail selected">{quote.rebate}</span>
-            <span className="detail selected">%{quote.money_factor}</span>
-            <span className="detail selected">%{quote.residual}</span>
+            <span className="detail">{quote.year}</span>
+            <span className="detail">{quote.make}</span>
+            <span className="detail">{quote.model}</span>
+            <span className="detail">{quote.trim}</span>
+            <span className="detail">{quote.msrp}</span>
+            <span className="detail">{quote.sell_price}</span>
+            <span className="detail">{quote.residual}</span>
+            <span className="detail">{quote.months}</span>
+            <span className="detail">{quote.rebate}</span>
+            <span className="detail">%{quote.money_factor}</span>
+            <span className="detail">%{quote.residual}</span>
           </section>
         </section>
       </div>

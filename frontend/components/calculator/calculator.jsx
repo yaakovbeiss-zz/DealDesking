@@ -59,6 +59,14 @@ class Calculator extends React.Component {
     e.preventDefault();
     this.calculatePayments();
     const quote = this.state;
+    const terms_attributes = Symbol()
+    const mileages_attributes = Symbol()
+    quote[terms_attributes] = {
+      months: this.state.months,
+      rebates_attributes: { amount: this.state.rebate },
+      money_factors_attributes: { money_factor: this.state.money_factor }
+    }
+    quote[mileages_attributes] = { mileage: this.state.mileage }
     this.props.receiveQuote(quote);
     this.toggleDisplay();
   }

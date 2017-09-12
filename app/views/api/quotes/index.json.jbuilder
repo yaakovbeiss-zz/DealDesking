@@ -10,10 +10,6 @@ json.array! @quotes.each do |quote|
   json.msrp quote.msrp
   json.sell_price quote.sell_price
   json.profit quote.profit
-  json.money_factor quote.money_factor
-  json.rebate quote.rebate
-  json.residual quote.residual
-  json.months quote.months
   json.monthly_payment quote.monthly_payment
   json.tax quote.tax
   json.bank_fee quote.bank_fee
@@ -29,4 +25,30 @@ json.array! @quotes.each do |quote|
   json.misc_fee_plan quote.misc_fee_plan
   json.rebate_tax_plan quote.rebate_tax_plan
   json.created_at quote.created_at
+    json.mileages quote.mileages do |mileage|
+      json.id mileage.id
+      json.quote_id mileage.quote_id
+      json.mileage mileage.mileage
+    end
+    json.terms quote.terms do |term|
+      json.id term.id
+      json.quote_id term.quote_id
+      json.months term.months
+        json.rebates term.rebates do |rebate|
+          json.id rebate.id
+          json.term_id rebate.term_id
+          json.amount rebate.amount
+        end
+        json.money_factor term.money_factors do |money_factor|
+          json.id money_factor.id
+          json.term_id money_factor.term_id
+          json.money_factor money_factor.money_factor
+        end
+        json.residual term.residuals do |residual|
+          json.id residual.id
+          json.term_id residual.term_id
+          json.mileage_id residual.mileage_id
+          json.residual residual.residual
+        end
+    end
 end

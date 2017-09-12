@@ -1,7 +1,7 @@
 .calc-container {
   display: flex;
   flex-direction: row;
-  border: 1px solid green;
+  border: 1px solid #0084bf;
   width: 551px;
   border-radius: 3px;
 }
@@ -34,7 +34,8 @@ select {
   display: flex;
   flex-direction: row;
   width: 345px;
-  border: 1px solid green;
+  border: 1px solid #0084bf;
+  border-radius: 3px;
 }
 .display {
   display: flex;
@@ -43,4 +44,9 @@ select {
 }
 section.display span {
   margin: 5px;
+}
+div.display-container > button {
+  display: flex;
+  align-self: flex-end;
+  width: max-content;
 }

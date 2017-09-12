@@ -5,7 +5,7 @@ class Api::QuotesController < ApplicationController
     @quote.user_id = current_user.id
 
     if @quote.save
-      @quotes = current_user.quotes
+      @quotes = current_user.quotes.includes(:terms, :rebates, :money_factors, :residuals, :mileages)
       render :index
     else
       render json: @quote, status: 422
@@ -37,10 +37,14 @@ class Api::QuotesController < ApplicationController
 
   def quote_params
     params.require(:quote).permit(:user_id, :lead_id, :year, :make, :make_id, :model, :model_id,
-      :trim, :trim_id, :title, :msrp, :sell_price, :profit, :rebate, :residual, :money_factor,
-      :months, :tax, :bank_fee, :registration, :doc_fee, :smog, :misc_fee, :rebate_tax,
-      :customer_cash, :bank_fee_plan, :registration_plan, :smog_plan, :misc_fee_plan,
-      :rebate_tax_plan, :mileage, :doc_fee_plan, :down_payment, :drive_off, :monthly_payment)
+      :trim, :trim_id, :title, :msrp, :sell_price, :profit, :customer_cash, :bank_fee_plan,
+      :registration_plan, :smog_plan, :misc_fee_plan, :rebate_tax_plan, :doc_fee_plan,
+      :down_payment, :drive_off, :monthly_payment, :tax, :bank_fee, :registration, :doc_fee, :smog,
+      :misc_fee, :rebate_tax,
+
+      terms_attributes: [:months, rebates_attributes: [:amount], money_factors_attributes: [:money_factor]],
+      mileages_attributes: [:mileage]
+      )
   end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170830184850) do
+ActiveRecord::Schema.define(version: 20170911145343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,11 +32,25 @@ ActiveRecord::Schema.define(version: 20170830184850) do
     t.string   "year",       null: false
   end
 
+  create_table "mileages", force: :cascade do |t|
+    t.integer  "quote_id",   null: false
+    t.integer  "mileage",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "models", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "make_id",    null: false
+  end
+
+  create_table "money_factors", force: :cascade do |t|
+    t.integer  "term_id",      null: false
+    t.float    "money_factor", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "quotes", force: :cascade do |t|
@@ -50,10 +64,6 @@ ActiveRecord::Schema.define(version: 20170830184850) do
     t.integer  "msrp"
     t.integer  "sell_price"
     t.integer  "profit"
-    t.integer  "rebate"
-    t.float    "residual"
-    t.float    "money_factor"
-    t.integer  "months"
     t.float    "tax"
     t.integer  "bank_fee"
     t.float    "registration"
@@ -69,7 +79,6 @@ ActiveRecord::Schema.define(version: 20170830184850) do
     t.string   "rebate_tax_plan"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.integer  "mileage"
     t.string   "doc_fee_plan"
     t.float    "down_payment"
     t.float    "drive_off"
@@ -78,6 +87,28 @@ ActiveRecord::Schema.define(version: 20170830184850) do
     t.integer  "model_id",          null: false
     t.integer  "trim_id",           null: false
     t.index ["user_id"], name: "index_quotes_on_user_id", using: :btree
+  end
+
+  create_table "rebates", force: :cascade do |t|
+    t.integer  "term_id",    null: false
+    t.integer  "amount",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "residuals", force: :cascade do |t|
+    t.integer  "term_id",    null: false
+    t.float    "residual",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "mileage_id", null: false
+  end
+
+  create_table "terms", force: :cascade do |t|
+    t.integer  "quote_id",   null: false
+    t.integer  "months",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "trims", force: :cascade do |t|

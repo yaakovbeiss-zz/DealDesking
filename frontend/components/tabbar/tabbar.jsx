@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { Route, Switch } from 'react-router-dom';
 
 const TabBar = (...Tabs) => {
@@ -21,7 +22,7 @@ const TabBar = (...Tabs) => {
     }
 
     className(tab) {
-      if (this.state.selected === tab[1]) {
+      if (this.props.location.pathname.split("/")[1] === tab[1]) {
         return "tab-selected";
       } else {
         return "tab";

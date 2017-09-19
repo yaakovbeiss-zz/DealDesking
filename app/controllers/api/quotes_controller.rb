@@ -1,7 +1,6 @@
 class Api::QuotesController < ApplicationController
 
   def create
-
     @quote = Quote.new(quote_params)
     @quote.user_id = current_user.id
 
@@ -14,7 +13,7 @@ class Api::QuotesController < ApplicationController
   end
 
   def index
-    @quotes = current_user.quotes.includes(:lead)
+    @quotes = current_user.quotes.includes(:lead, :terms, :rebates, :money_factors, :residuals, :mileages)
   end
 
   def destroy
@@ -42,14 +41,17 @@ class Api::QuotesController < ApplicationController
       :registration_plan, :smog_plan, :misc_fee_plan, :rebate_tax_plan, :doc_fee_plan,
       :down_payment, :drive_off, :monthly_payment, :tax, :bank_fee, :registration, :doc_fee, :smog,
       :misc_fee, :rebate_tax,
+
       terms_attributes: [
         :id,
         :months,
         rebates_attributes: [:id, :term_id, :amount],
-        money_factors_attributes: [:id, :term_id, :money_factor]
-      ],
-      mileages_attributes: [:id, :quote_id, :mileage]
-      )
+        money_factors_attributes: [:id, :term_id, :money_factor],
+        residuals_attributes: [:id, :term_id, :residual,
+          mileages_attributes: [:id, :mileage, :residual_id]
+        ]
+      ]
+    )
   end
 
 end

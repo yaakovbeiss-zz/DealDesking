@@ -7,7 +7,6 @@ class Quote < ApplicationRecord
 
   has_many :terms, dependent: :destroy, inverse_of: :quote
 
-  has_many :mileages, dependent: :destroy, inverse_of: :quote
 
   has_many :rebates,
     through: :terms,
@@ -21,6 +20,11 @@ class Quote < ApplicationRecord
     through: :terms,
     source: :residuals
 
-  accepts_nested_attributes_for :terms, :mileages, allow_destroy: true
+  has_many :mileages,
+    through: :residuals,
+    source: :mileages
+
+
+  accepts_nested_attributes_for :terms, allow_destroy: true
 
 end

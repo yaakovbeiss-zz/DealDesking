@@ -8,6 +8,10 @@ class Term < ApplicationRecord
   has_many :money_factors, dependent: :destroy
   has_many :residuals, dependent: :destroy
 
-  accepts_nested_attributes_for :rebates, :money_factors, allow_destroy: true
+  has_many :mileages,
+    through: :residuals,
+    source: :mileages
+
+  accepts_nested_attributes_for :rebates, :money_factors, :residuals, allow_destroy: true
 
 end

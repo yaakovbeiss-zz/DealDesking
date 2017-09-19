@@ -25,11 +25,6 @@ json.array! @quotes.each do |quote|
   json.misc_fee_plan quote.misc_fee_plan
   json.rebate_tax_plan quote.rebate_tax_plan
   json.created_at quote.created_at
-    json.mileages quote.mileages do |mileage|
-      json.id mileage.id
-      json.quote_id mileage.quote_id
-      json.mileage mileage.mileage
-    end
     json.terms quote.terms do |term|
       json.id term.id
       json.quote_id term.quote_id
@@ -47,8 +42,14 @@ json.array! @quotes.each do |quote|
         json.residual term.residuals do |residual|
           json.id residual.id
           json.term_id residual.term_id
-          json.mileage_id residual.mileage_id
           json.residual residual.residual
+
+          json.mileages residual.mileages do |mileage|
+            json.id mileage.id
+            json.residual_id mileage.residual_id
+            json.mileage mileage.mileage
+          end
+
         end
     end
 end

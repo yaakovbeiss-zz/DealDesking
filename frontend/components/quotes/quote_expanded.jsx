@@ -1,4 +1,5 @@
 import React from 'react';
+import TermsIndex from './terms_index';
 import Calculator from '../calculator/calculator';
 
 class QuoteExpanded extends React.Component {
@@ -9,7 +10,7 @@ class QuoteExpanded extends React.Component {
   }
 
   componentDidMount() {
-    
+    this.props.receiveQuote(this.props.quote);
   }
 
   handleClick(e) {
@@ -23,7 +24,8 @@ class QuoteExpanded extends React.Component {
 
   render() {
     const quote = this.props.quote;
-
+    const terms = quote.terms;
+    
     return (
       <div onClick={this.handleClick} className="modal-container">
 
@@ -49,7 +51,7 @@ class QuoteExpanded extends React.Component {
             <span className="detail">{quote.msrp}</span>
             <span className="detail">{quote.sell_price}</span>
             <span className="detail">{quote.residual}</span>
-            <span className="detail">{quote.months}</span>
+            <span className="detail"> <TermsIndex terms={terms}/> </span>
             <span className="detail">{quote.rebate}</span>
             <span className="detail">%{quote.money_factor}</span>
             <span className="detail">%{quote.residual}</span>

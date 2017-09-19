@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911145343) do
+ActiveRecord::Schema.define(version: 20170918214158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(version: 20170911145343) do
   end
 
   create_table "mileages", force: :cascade do |t|
-    t.integer  "quote_id",   null: false
-    t.integer  "mileage",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "mileage",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "residual_id", null: false
   end
 
   create_table "models", force: :cascade do |t|
@@ -101,7 +101,6 @@ ActiveRecord::Schema.define(version: 20170911145343) do
     t.float    "residual",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "mileage_id", null: false
   end
 
   create_table "terms", force: :cascade do |t|

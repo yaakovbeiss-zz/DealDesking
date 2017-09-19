@@ -34,12 +34,12 @@ json.array! @quotes.each do |quote|
           json.term_id rebate.term_id
           json.amount rebate.amount
         end
-        json.money_factor term.money_factors do |money_factor|
+        json.money_factors term.money_factors do |money_factor|
           json.id money_factor.id
           json.term_id money_factor.term_id
           json.money_factor money_factor.money_factor
         end
-        json.residual term.residuals do |residual|
+        json.residuals term.residuals do |residual|
           json.id residual.id
           json.term_id residual.term_id
           json.residual residual.residual

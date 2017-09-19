@@ -7,12 +7,18 @@ class TermsIndex extends React.Component {
 
   }
 
+  componentDidMount() {
+    this.props.receiveTerm(this.props.terms[0]);
+    this.props.receiveTerms(this.props.terms);
+  }
+
   render() {
     const terms = this.props.terms;
+
     return (
-      <terms>
-        {terms.map((term) => <Term key={term.id} months={term.months} moneyFactors={term.money_factors} /> )}
-      </terms>
+      <termsIndex>
+        {terms.map((term) => <Term key={term.id} months={term.months} /> )}
+      </termsIndex>
     )
   }
 }

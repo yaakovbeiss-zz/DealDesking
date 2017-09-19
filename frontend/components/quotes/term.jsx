@@ -9,7 +9,6 @@ class Term extends React.Component {
     return (
       <div>
         <span className="detail">{this.props.months}</span>
-        
       </div>
     )
   }
